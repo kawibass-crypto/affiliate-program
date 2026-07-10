@@ -679,5 +679,8 @@ function toggleFaq(btn) {
 }
 
 // Scroll reveal
-new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 }).observe(document.querySelector('.fade-in'));
-document.que
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.
