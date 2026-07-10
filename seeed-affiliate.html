@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seeed Creator & Affiliate Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080C0F;
+  --bg2: #0D1217;
+  --card: #11161B;
+  --card-hover: #161C23;
+  --border: rgba(255,255,255,0.06);
+  --border-glow: rgba(163, 230, 53, 0.18);
+  --green: #A3E635;
+  --green-dim: rgba(163, 230, 53, 0.07);
+  --green-mid: rgba(163, 230, 53, 0.12);
+  --text: #E6EDF3;
+  --text2: #8B949E;
+  --text3: #5D6778;
+  --radius: 12px;
+  --radius-lg: 18px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Circuit BG */
+#circuit-bg {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 14px 0; transition: background 0.3s, backdrop-filter 0.3s;
+}
+.nav.scrolled {
+  background: rgba(8, 12, 15, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+  font-size: 1.2rem; color: var(--text); text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--green); }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  color: var(--text2); text-decoration: none; font-size: 0.88rem;
+  font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--green); color: #0A0F00;
+  padding: 8px 20px; border-radius: 8px; font-weight: 600;
+  font-size: 0.85rem; text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.nav-cta:hover { box-shadow: 0 0 28px rgba(163, 230, 53, 0.35); transform: translateY(-1px); }
+
+/* Hero */
+.hero {
+  position: relative; z-index: 1; min-height: auto;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 100px 24px 60px;
+  background: url('111.png') center/cover no-repeat;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+.hero > div {
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 700; line-height: 1.15; letter-spacing: -0.03em;
+  max-width: 800px; margin: 40px auto 20px;
+}
+.hero p {
+  color: var(--text2); font-size: 1.05rem;
+  max-width: 620px; margin: 0 auto 36px; line-height: 1.7;
+}
+.hero-note {
+  color: #506e37 !important;
+  font-size: 0.82rem !important;
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
+}
+.btn {
+  display: inline-block; padding: 13px 32px; border-radius: 10px;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif; transition: all 0.3s;
+  cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--green); color: #0A0F00;
+}
+.btn-primary:hover { box-shadow: 0 0 36px rgba(163, 230, 53, 0.4); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-outline:hover { border-color: var(--green); background: var(--green-dim); }
+
+/* Section */
+.section {
+  position: relative; z-index: 1; padding: 90px 24px;
+}
+.section-inner { max-width: 1000px; margin: 0 auto; }
+.section h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 12px; line-height: 1.25;
+}
+.section .desc {
+  color: var(--text2); font-size: 0.98rem;
+  max-width: 580px; margin-bottom: 40px; line-height: 1.7;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px 28px 24px;
+  transition: all 0.3s;
+}
+.card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+}
+.card .icon {
+  font-size: 1.4rem; margin-bottom: 14px;
+}
+.card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem; font-weight: 600; margin-bottom: 6px;
+}
+.card p {
+  color: var(--text2); font-size: 0.88rem; line-height: 1.6;
+}
+
+/* List style cards */
+.list-cards {
+  display: flex; flex-direction: column; gap: 12px; max-width: 700px;
+}
+.list-card {
+  display: flex; align-items: flex-start; gap: 16px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 24px;
+  transition: all 0.3s;
+}
+.list-card:hover { border-color: var(--border-glow); background: var(--card-hover); }
+.list-card .marker {
+  color: var(--green); font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem; font-weight: 600; margin-top: 2px;
+  flex-shrink: 0;
+}
+.list-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.6; }
+
+/* Banner */
+.banner {
+  background: linear-gradient(135deg, rgba(163, 230, 53, 0.05), rgba(132, 204, 22, 0.03));
+  border: 1px solid rgba(163, 230, 53, 0.15);
+  border-radius: var(--radius-lg); padding: 40px; margin: 16px 0 0;
+}
+.banner h3 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem;
+  font-weight: 700; margin-bottom: 10px;
+}
+.banner .big-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 3rem; font-weight: 700;
+  color: var(--green); line-height: 1; margin-bottom: 6px;
+  display: inline-block;
+}
+.banner p { color: var(--text2); max-width: 540px; line-height: 1.7; }
+.banner .tags {
+  display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;
+}
+.tag {
+  background: var(--green-mid); color: var(--green);
+  padding: 5px 12px; border-radius: 100px; font-size: 0.78rem;
+  font-weight: 500; border: 1px solid rgba(163, 230, 53, 0.2);
+}
+.banner ul { margin-top: 16px; list-style: none; }
+.banner ul li {
+  color: var(--text2); font-size: 0.88rem;
+  padding: 5px 0; padding-left: 18px; position: relative; line-height: 1.6;
+}
+.banner ul li::before {
+  content: '▸'; position: absolute; left: 0; color: var(--green);
+}
+
+/* Steps */
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.step {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px;
+  transition: all 0.3s;
+}
+.step:hover { border-color: var(--border-glow); }
+.step .num {
+  font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;
+  font-weight: 600; color: var(--green); margin-bottom: 10px;
+}
+.step h4 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+  margin-bottom: 6px;
+}
+.step p { color: var(--text2); font-size: 0.88rem; line-height: 1.6; }
+.step-link {
+  display: inline-block; margin-top: 10px;
+  color: var(--green); font-size: 0.85rem; font-weight: 500;
+  text-decoration: none; transition: color 0.2s;
+}
+.step-link:hover { color: #C0FF40; }
+
+/* Comparison */
+.compare {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.compare-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px;
+  transition: all 0.3s;
+}
+.compare-card:hover { border-color: var(--border-glow); }
+.compare-card h3 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+.compare-card p { color: var(--text2); font-size: 0.88rem; line-height: 1.6; }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; gap: 10px; }
+.faq-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: border-color 0.3s;
+}
+.faq-item:hover { border-color: rgba(255,255,255,0.1); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  color: var(--text); font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem; font-weight: 600; padding: 18px 22px;
+  text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; transition: color 0.2s;
+}
+.faq-q:hover { color: var(--green); }
+.faq-q .arrow { font-size: 0.7rem; color: var(--text3); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-q .arrow { transform: rotate(180deg); color: var(--green); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 22px;
+}
+.faq-item.open .faq-a { max-height: 500px; padding: 0 22px 18px; }
+.faq-a p, .faq-a li { color: var(--text2); font-size: 0.87rem; line-height: 1.7; }
+.faq-a ul { padding-left: 18px; }
+.faq-a li { padding: 2px 0; }
+
+/* Footer */
+.footer {
+  position: relative; z-index: 1; text-align: center;
+  padding: 80px 24px 40px;
+}
+.footer h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700;
+  margin-bottom: 12px;
+}
+.footer p { color: var(--text2); margin-bottom: 28px; font-size: 1rem; }
+.footer-legal {
+  border-top: 1px solid var(--border); padding: 32px 24px;
+  text-align: center; color: var(--text3); font-size: 0.8rem;
+  position: relative; z-index: 1;
+}
+.footer-legal a { color: var(--text2); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Note */
+.note {
+  color: var(--text3); font-size: 0.82rem; margin-top: 16px;
+  text-align: center;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .steps, .compare { grid-template-columns: 1fr; }
+  .section { padding: 60px 16px; }
+  .banner { padding: 28px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<canvas id="circuit-bg"></canvas>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Seeed<span>Studio</span></a>
+    <ul class="nav-links">
+      <li><a href="#looking">Who We're Looking For</a></li>
+      <li><a href="#benefits">What You'll Get</a></li>
+      <li><a href="#campaigns">Campaigns</a></li>
+      <li><a href="#howto">How to Participate</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#" class="nav-cta">Sign up</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div>
+    <h1>Join Seeed Creator &amp; Affiliate Program</h1>
+    <p>Seeed Creator &amp; Affiliate Program is designed to empower tech enthusiasts, content creators, and community promoters who love sharing great tools and creative builds. Whether you enjoy creating videos, writing blog posts, or sharing projects with your audience, we want to support your journey and reward your impact.</p>
+    <a href="https://www.seeedstudio.com/customer/account/create/" class="btn btn-primary">Sign up</a>
+    <p class="hero-note">*Please note that the Seeed Bazaar Affiliate Program does not apply to FUSION PCB/PCBA. Stay tuned for future updates!</p>
+  </div>
+</section>
+
+<!-- ═══════════ HOW TO PARTICIPATE ═══════════ -->
+<section class="section" style="background: var(--bg2);" id="howto">
+  <div class="section-inner fade-in">
+    <h2>How to participate？</h2>
+    <div class="steps" style="margin-top: 28px;">
+      <div class="step">
+        <div class="num">01</div>
+        <h4>Sign up</h4>
+        <p>Start your Seeed's affiliate journey with a Detailed Guide.</p>
+        <a href="https://files.seeedstudio.com/wiki/wiki-platform/How_to_Join_Seeed_Affiliate_Program.pdf" class="step-link" target="_blank">How to Join Seeed Affiliate Program.pdf →</a>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h4>Recommend</h4>
+        <p>Share your unique affiliate link with your audiences via blogs, videos, or social media. The more you share, the more you earn!</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h4>Earn</h4>
+        <p>Earn commission on every successful referral! Track your performance in real-time and enjoy exclusive rewards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHO WE ARE LOOKING FOR ═══════════ -->
+<section class="section" id="looking">
+  <div class="section-inner fade-in">
+    <h2>Who We Are Looking For?</h2>
+    <div class="cards" style="margin-top: 28px;">
+      <div class="card">
+        <div class="icon">🎬</div>
+        <h3>Tech Content Creators</h3>
+        <p>Tech creators who produce engaging content like videos, blogs, or tutorials</p>
+      </div>
+      <div class="card">
+        <div class="icon">📢</div>
+        <h3>Community Promoters</h3>
+        <p>Community promoters and influencers who want to monetize their audience</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Open-Source Enthusiasts</h3>
+        <p>Anyone passionate about Seeed's open-source hardware and eager to share it with others</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHAT WE HOPE FROM YOU ═══════════ -->
+<section class="section" style="background: var(--bg2);">
+  <div class="section-inner fade-in">
+    <h2>What We Hope From You？</h2>
+    <div class="cards" style="margin-top: 28px;">
+      <div class="card">
+        <div class="icon">🎥</div>
+        <h3>Create Content</h3>
+        <p>Create content using Seeed products (reviews, tutorials, project showcases)</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔗</div>
+        <h3>Share Your Links</h3>
+        <p>Share affiliate links across your platforms (YouTube, blogs, social media, etc.)</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>Inspire Community</h3>
+        <p>Inspire your community and help spread innovative tech globally</p>
+      </div>
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Grow With Us</h3>
+        <p>Grow with us by joining affiliate promotions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHAT YOU'LL GET ═══════════ -->
+<section class="section" id="benefits">
+  <div class="section-inner fade-in">
+    <h2>What You'll Get？</h2>
+    <div class="cards" style="margin-top: 28px;">
+      <div class="card">
+        <div class="icon">🎁</div>
+        <h3>Free & Early Access</h3>
+        <p>Free or early access to Seeed hardware (for selected creators)</p>
+      </div>
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Earn Commissions</h3>
+        <p>Commissions on every successful sale through your unique link</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Real-Time Dashboard</h3>
+        <p>Real-time performance dashboard</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Official Exposure</h3>
+        <p>Exposure via Seeed's official channels</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ XIAO SERIES CAMPAIGN ═══════════ -->
+<section class="section" style="background: var(--bg2);" id="campaigns">
+  <div class="section-inner fade-in">
+    <h2>XIAO Series Promotion Affiliate Campaign</h2>
+    <div class="banner">
+      <p style="margin-bottom: 16px;">Join our Creator &amp; Affiliate Program and start promoting our <strong style="color: var(--text);">XIAO Series</strong> dev boards today!</p>
+      <div style="display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 20px;">
+        <div>
+          <div class="big-num" style="font-size: 2.2rem;">8%</div>
+          <p style="font-size: 0.85rem; color: var(--text3);">Commission</p>
+        </div>
+        <div>
+          <div class="big-num" style="font-size: 2.2rem;">2%</div>
+          <p style="font-size: 0.85rem; color: var(--text3);">Follower Discount</p>
+        </div>
+      </div>
+      <a href="#" class="btn btn-primary" style="font-size: 0.9rem;">Selected XIAO Series Promotion</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOME ASSISTANT 10% ═══════════ -->
+<section class="section">
+  <div class="section-inner fade-in">
+    <h2>New Affiliate Focus: Promote Home Assistant-Compatible Gear with 10% Commission</h2>
+    <div class="banner">
+      <p>Now we are putting the spotlight on <strong style="color: #22d481;">Meshtastic-Compatible Gear</strong>, offering affiliates <span class="big-num" style="font-size: 2.5rem;">10%</span> commission on referred sales.</p>
+      <p style="margin-top: 4px;">Ideal for smart home fans, HA content creators &amp; DIY enthusiasts.</p>
+      <p style="margin-top: 4px;">Wide selection of products for different scenarios. Higher earning potential with focused content.</p>
+      <div class="tags">
+        <span class="tag">Smart Home</span>
+        <span class="tag">Home Assistant</span>
+        <span class="tag">Meshtastic</span>
+        <span class="tag">DIY Enthusiast</span>
+        <span class="tag">10% Commission</span>
+      </div>
+      <ul>
+        <li>Benefit from competitive commissions and exclusive discounts for your audience.</li>
+        <li>Promote robust, decentralized communication solutions.</li>
+        <li>Ideal for outdoor adventurers, off-grid communication enthusiasts, and tech innovators.</li>
+      </ul>
+      <a href="#" class="btn btn-primary" style="margin-top: 16px; font-size: 0.9rem;">See program details</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NOT SURE WHICH PROGRAM ═══════════ -->
+<section class="section">
+  <div class="section-inner fade-in">
+    <h2>Not Sure Which Program Suits You Best?</h2>
+    <div class="compare" style="margin-top: 28px;">
+      <div class="compare-card">
+        <h3>Content Creator</h3>
+        <p>If you're more interested in content creation, just let us know in your application email, and include samples of your work.</p>
+      </div>
+      <div class="compare-card">
+        <h3>Affiliate Promoter</h3>
+        <p>If you're focused on affiliate promotion, we'll provide exclusive commission rate for you and dedicated discount for your viewers according to your promotion performance.</p>
+      </div>
+    </div>
+    <p class="note">*This program applies to Seeed Bazaar products only. Fusion PCB/PCBA are not currently included.</p>
+    <p class="note">*Application emails are reviewed manually — please allow a few days for our team to get back to you.</p>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section" style="background: var(--bg2);" id="faq">
+  <div class="section-inner fade-in">
+    <h2>FAQ</h2>
+    <div class="faq" style="margin-top: 28px;">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Q: What promotion methods are prohibited? <span class="arrow">▼</span></button>
+        <div class="faq-a">
+          <p>A: To ensure fairness, please note the following restrictions:</p>
+          <ul>
+            <li><strong>No PPC advertising bidding:</strong> Affiliate accounts using paid ads to promote links will be closed with unpaid commissions.</li>
+            <li><strong>No personal purchases with affiliate links/discount codes:</strong> Orders from your personal account will be manually reviewed, and we reserve the right to withhold commissions. Misuse of discount codes will result in immediate revocation without notice.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Q: How are commission rates structured and updated? <span class="arrow">▼</span></button>
+        <div class="faq-a">
+          <p>A: Our commission system is designed to reward active affiliates:</p>
+          <ul>
+            <li><strong>Base Rate Guarantee:</strong> 3% commission rate applies to all eligible products and will not decrease.</li>
+            <li><strong>Tiered Rewards:</strong> High-performing affiliates may qualify for increased rates based on sales volume.</li>
+            <li><strong>Seasonal Boosts:</strong> Quarterly limited-time campaigns may offer higher rates for specific categories.</li>
+            <li><strong>New Product Launches:</strong> Exclusive short-term rate boosts for newly released products.</li>
+          </ul>
+          <p style="margin-top: 6px;">❗ All updates (rate changes, campaigns, etc.) will be notified via email.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Q: How do I withdraw my commissions? <span class="arrow">▼</span></button>
+        <div class="faq-a">
+          <p>A: Go to "My Balance" in your account and click "Withdraw." Email an electronic invoice matching the withdrawal amount. Payments are processed quarterly (March/June/September/December). Submit requests by mid-quarter (e.g., March 15) to expedite processing.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Q: Are there withdrawal timing restrictions? <span class="arrow">▼</span></button>
+        <div class="faq-a">
+          <p>A: You may apply anytime, but payments are batched quarterly. Automatic payments are unavailable (platform limitation).</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Q: Will I earn commissions if a referred order is cancelled? <span class="arrow">▼</span></button>
+        <div class="faq-a">
+          <p>A: Commissions apply only to completed orders. Cancelled orders void associated commissions.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Q: Can you provide an Invoice Template? <span class="arrow">▼</span></button>
+        <div class="faq-a">
+          <p>A: Yes! Download the template and edit the yellow highlighted fields with your details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<section class="footer">
+  <h2>Recommend Seeed Products.<br>Earn Commissions.</h2>
+  <a href="#" class="btn btn-primary" style="font-size: 1rem; padding: 14px 36px;">Sign up</a>
+</section>
+
+<footer class="footer-legal">
+  <p style="max-width: 700px; margin: 0 auto 8px;">As a Seeed Affiliate, you agree to abide by the Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="#">Affiliate Program Terms &amp; Conditions</a>.</p>
+  <p>&copy; 2008–2026 Seeed Studio. All rights reserved.</p>
+</footer>
+
+<script>
+// Circuit Background
+(function() {
+  const c = document.getElementById('circuit-bg');
+  const ctx = c.getContext('2d');
+  let nodes = [], particles = [], w, h;
+
+  function resize() { w = c.width = innerWidth; h = c.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+
+  function mkNodes() {
+    nodes = [];
+    const n = ~~((w * h) / 30000);
+    for (let i = 0; i < n; i++) nodes.push({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.8 + 1,
+      p: Math.random() * Math.PI * 2,
+      s: Math.random() * 0.015 + 0.005,
+      g: Math.random() * 0.4 + 0.2
+    });
+  }
+  function mkParts() {
+    particles = [];
+    const n = ~~((w * h) / 70000);
+    for (let i = 0; i < n; i++) {
+      const a = nodes[~~(Math.random() * nodes.length)];
+      const b = nodes[~~(Math.random() * nodes.length)];
+      particles.push({ a, b, t: Math.random(), sp: Math.random() * 0.0025 + 0.0008, sz: Math.random() * 1.2 + 0.4 });
+    }
+  }
+  mkNodes(); mkParts();
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(163,230,53,0.05)'; ctx.lineWidth = 0.5;
+    for (let i = 0; i < nodes.length; i++)
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        if (dx*dx+dy*dy < 32400) { ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke(); }
+      }
+    for (const n of nodes) {
+      n.p += n.s;
+      const a = 0.25 + (n.g + Math.sin(n.p) * 0.25) * 0.5;
+      const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
+      g.addColorStop(0, `rgba(163,230,53,${a})`); g.addColorStop(1, 'rgba(163,230,53,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+    }
+    for (const p of particles) {
+      p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(Math.random() * nodes.length)]; p.b = nodes[~~(Math.random() * nodes.length)]; }
+      const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
+      ctx.fillStyle = 'rgba(163,230,53,0.55)'; ctx.beginPath(); ctx.arc(x, y, p.sz, 0, Math.PI * 2); ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
+})();
+
+// Nav scroll
+addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement, was = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
+  if (!was) item.classList.add('open');
+}
+
+// Scroll reveal
+new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 }).observe(document.querySelector('.fade-in'));
+document.que
