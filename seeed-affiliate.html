@@ -84,7 +84,7 @@ body {
 .hero {
   position: relative; z-index: 1; min-height: auto;
   display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 100px 24px 60px;
+  padding: 80px 24px;
   background: url('111.png') center/cover no-repeat;
 }
 .hero::before {
@@ -93,18 +93,30 @@ body {
   background: rgba(0, 0, 0, 0.55);
   z-index: 0;
 }
-.hero > div {
+.hero-inner {
   position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 60px;
+  max-width: 1100px; width: 100%;
 }
-.hero h1 {
+.hero-text {
+  flex: 1; text-align: left;
+}
+.hero-text h1 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 700; line-height: 1.15; letter-spacing: -0.03em;
-  max-width: 800px; margin: 40px auto 20px;
+  margin: 0 0 16px;
 }
-.hero p {
+.hero-text p {
   color: var(--text2); font-size: 1.05rem;
-  max-width: 620px; margin: 0 auto 36px; line-height: 1.7;
+  margin: 0 0 28px; line-height: 1.7;
+}
+.hero-img {
+  flex: 0 0 auto;
+  width: clamp(300px, 40vw, 480px);
+}
+.hero-img img {
+  width: 100%; height: auto; display: block;
 }
 .hero-note {
   color: #506e37 !important;
@@ -334,6 +346,10 @@ body {
   .steps, .compare { grid-template-columns: 1fr; }
   .section { padding: 60px 16px; }
   .banner { padding: 28px 20px; }
+  .hero { padding: 60px 16px; }
+  .hero-inner { flex-direction: column; gap: 32px; text-align: center; }
+  .hero-text { text-align: center; }
+  .hero-img { width: 80%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -364,11 +380,16 @@ body {
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
-  <div>
-    <h1>Join Seeed Creator &amp; Affiliate Program</h1>
-    <p>Seeed Creator &amp; Affiliate Program is designed to empower tech enthusiasts, content creators, and community promoters who love sharing great tools and creative builds. Whether you enjoy creating videos, writing blog posts, or sharing projects with your audience, we want to support your journey and reward your impact.</p>
-    <a href="https://www.seeedstudio.com/customer/account/create/" class="btn btn-primary">Sign up</a>
-    <p class="hero-note">*Please note that the Seeed Bazaar Affiliate Program does not apply to FUSION PCB/PCBA. Stay tuned for future updates!</p>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Create. Share. Earn with Seeed.</h1>
+      <p>Join Seeed's Creator &amp; Affiliate Program to share open-source hardware, inspire your audience, and earn from successful referrals.</p>
+      <a href="https://www.seeedstudio.com/customer/account/create/" class="btn btn-primary">Join Affiliate Program</a>
+      <p class="hero-note">*Please note that the Seeed Bazaar Affiliate Program does not apply to FUSION PCB/PCBA. Stay tuned for future updates!</p>
+    </div>
+    <div class="hero-img">
+      <img src="heropic.png" alt="Seeed Affiliate">
+    </div>
   </div>
 </section>
 
@@ -684,13 +705,4 @@ function toggleFaq(btn) {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Fallback: show all after 2s in case observer fails
-setTimeout(() => {
-  document.querySelectorAll('.fade-in').forEach
+      entry
