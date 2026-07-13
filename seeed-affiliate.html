@@ -234,9 +234,11 @@ body {
   transition: all 0.3s;
 }
 .step:hover { border-color: var(--border-glow); }
-.step .num {
-  font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;
-  font-weight: 600; color: var(--green); margin-bottom: 10px;
+.step-icon {
+  width: 64px; height: 64px;
+  margin: 0 auto 16px;
+  display: block;
+  object-fit: contain;
 }
 .step h4 {
   font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
@@ -376,18 +378,18 @@ body {
     <h2>How to participate？</h2>
     <div class="steps" style="margin-top: 28px;">
       <div class="step">
-        <div class="num">01</div>
+        <img src="icon-signup.png" alt="Sign up" class="step-icon">
         <h4>Sign up</h4>
         <p>Start your Seeed's affiliate journey with a Detailed Guide.</p>
         <a href="https://files.seeedstudio.com/wiki/wiki-platform/How_to_Join_Seeed_Affiliate_Program.pdf" class="step-link" target="_blank">How to Join Seeed Affiliate Program.pdf →</a>
       </div>
       <div class="step">
-        <div class="num">02</div>
+        <img src="icon-recommend.png" alt="Recommend" class="step-icon">
         <h4>Recommend</h4>
         <p>Share your unique affiliate link with your audiences via blogs, videos, or social media. The more you share, the more you earn!</p>
       </div>
       <div class="step">
-        <div class="num">03</div>
+        <img src="icon-earn.png" alt="Earn" class="step-icon">
         <h4>Earn</h4>
         <p>Earn commission on every successful referral! Track your performance in real-time and enjoy exclusive rewards.</p>
       </div>
@@ -691,8 +693,4 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Fallback: show all after 2s in case observer fails
 setTimeout(() => {
-  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-}, 2000);
-</script>
-</body>
-</html>
+  document.querySelectorAll('.fade-in').forEach(e
