@@ -237,8 +237,8 @@ body {
 
 /* Steps */
 .steps {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 .step {
   background: var(--card); border: 1px solid var(--border);
@@ -399,20 +399,24 @@ body {
     <h2>How It Works</h2>
     <div class="steps" style="margin-top: 28px;">
       <div class="step">
-        <img src="icon-signup.png?v=3" alt="Sign up" class="step-icon">
-        <h4>Sign up</h4>
-        <p>Start your Seeed's affiliate journey with a Detailed Guide.</p>
-        <a href="https://files.seeedstudio.com/wiki/wiki-platform/How_to_Join_Seeed_Affiliate_Program.pdf" class="step-link" target="_blank">How to Join Seeed Affiliate Program.pdf →</a>
+        <img src="icon-step1.png?v=1" alt="Sign Up" class="step-icon">
+        <h4>Step 1 — Sign Up</h4>
+        <p>Join in under 2 minutes by completing our short affiliate settings form.</p>
       </div>
       <div class="step">
-        <img src="icon-recommend.png?v=3" alt="Recommend" class="step-icon">
-        <h4>Recommend</h4>
-        <p>Share your unique affiliate link with your audiences via blogs, videos, or social media. The more you share, the more you earn!</p>
+        <img src="icon-step2.png?v=1" alt="Get Your Link" class="step-icon">
+        <h4>Step 2 — Get Your Tracking Link / Code</h4>
+        <p>Access your personal dashboard and choose the best tracking link.</p>
       </div>
       <div class="step">
-        <img src="icon-earn.png?v=3" alt="Earn" class="step-icon">
-        <h4>Earn</h4>
-        <p>Earn commission on every successful referral! Track your performance in real-time and enjoy exclusive rewards.</p>
+        <img src="icon-step3.png?v=1" alt="Create Content" class="step-icon">
+        <h4>Step 3 — Create Content</h4>
+        <p>Tutorial · Review · Project Showcase</p>
+      </div>
+      <div class="step">
+        <img src="icon-step4.png?v=1" alt="Promote and Get Paid" class="step-icon">
+        <h4>Step 4 — Promote and Get Paid</h4>
+        <p>Share your link and earn with 45-day cookie tracking to maximize your revenue.</p>
       </div>
     </div>
   </div>
@@ -714,6 +718,4 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Fallback: show all after 2s in case observer fails
 setTimeout(() => {
-  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-}, 2000);
-</script>
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('vis
