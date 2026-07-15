@@ -99,7 +99,7 @@ body {
   max-width: 1600px; width: 100%;
 }
 .hero-text {
-  flex: 1; text-align: left;
+  flex: 1; text-align: left; max-width: 500px;
 }
 .hero-text h1 {
   font-family: 'Space Grotesk', sans-serif;
@@ -704,4 +704,18 @@ function toggleFaq(btn) {
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersectin
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Fallback: show all after 2s in case observer fails
+setTimeout(() => {
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+}, 2000);
+</script>
+</body>
+</html>
