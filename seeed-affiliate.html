@@ -235,35 +235,8 @@ body {
   content: '▸'; position: absolute; left: 0; color: var(--green);
 }
 
-/* Flow */
-.flow {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0; margin-top: 32px;
-}
-.flow-step {
-  display: flex; align-items: center; gap: 10px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 12px 20px;
-  transition: all 0.3s;
-}
-.flow-step:hover { border-color: var(--border-glow); }
-.flow-num {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--green); color: #0A0F00;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem; font-weight: 700;
-  flex-shrink: 0;
-}
-.flow-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem; font-weight: 600; color: var(--text);
-}
-.flow-arrow {
-  color: var(--green); font-size: 1.2rem; margin: 0 8px;
-  font-weight: 700;
-  opacity: 0.5;
-}
+/* Steps */
+.steps {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
@@ -371,8 +344,6 @@ body {
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .steps, .compare { grid-template-columns: 1fr; }
-  .flow { flex-wrap: wrap; gap: 8px; }
-  .flow-arrow { display: none; }
   .section { padding: 60px 16px; }
   .banner { padding: 28px 20px; }
   .hero { padding: 60px 16px; }
@@ -426,34 +397,25 @@ body {
 <section class="section" style="background: var(--bg2);" id="howto">
   <div class="section-inner fade-in">
     <h2>How It Works</h2>
-    <div class="flow">
-      <div class="flow-step"><span class="flow-num">1</span><span class="flow-label">Sign Up</span></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="flow-num">2</span><span class="flow-label">Get Your Link</span></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="flow-num">3</span><span class="flow-label">Create Content</span></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="flow-num">4</span><span class="flow-label">Promote &amp; Earn</span></div>
-    </div>
-    <div class="steps" style="margin-top: 36px;">
+    <div class="steps" style="margin-top: 28px;">
       <div class="step">
         <img src="icon-step1.png?v=1" alt="Sign Up" class="step-icon">
-        <h4>Sign Up</h4>
+        <h4>Step 1 — Sign Up</h4>
         <p>Join in under 2 minutes by completing our short affiliate settings form.</p>
       </div>
       <div class="step">
         <img src="icon-step2.png?v=1" alt="Get Your Link" class="step-icon">
-        <h4>Get Your Tracking Link / Code</h4>
+        <h4>Step 2 — Get Your Tracking Link / Code</h4>
         <p>Access your personal dashboard and choose the best tracking link.</p>
       </div>
       <div class="step">
         <img src="icon-step3.png?v=1" alt="Create Content" class="step-icon">
-        <h4>Create Content</h4>
+        <h4>Step 3 — Create Content</h4>
         <p>Tutorial · Review · Project Showcase</p>
       </div>
       <div class="step">
         <img src="icon-step4.png?v=1" alt="Promote and Get Paid" class="step-icon">
-        <h4>Promote and Get Paid</h4>
+        <h4>Step 4 — Promote and Get Paid</h4>
         <p>Share your link and earn with 45-day cookie tracking to maximize your revenue.</p>
       </div>
     </div>
@@ -720,4 +682,40 @@ body {
       const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
       g.addColorStop(0, `rgba(163,230,53,${a})`); g.addColorStop(1, 'rgba(163,230,53,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc
+      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+    }
+    for (const p of particles) {
+      p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(Math.random() * nodes.length)]; p.b = nodes[~~(Math.random() * nodes.length)]; }
+      const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
+      ctx.fillStyle = 'rgba(163,230,53,0.55)'; ctx.beginPath(); ctx.arc(x, y, p.sz, 0, Math.PI * 2); ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
+})();
+
+// Nav scroll
+addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement, was = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
+  if (!was) item.classList.add('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Fallback: show all after 2s in case observer fails
+setTimeout(() => {
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('vis
