@@ -586,8 +586,6 @@ body {
     <p class="subtitle"><strong>Join us and empower your audience with cutting-edge Meshtastic devices for reliable off-grid communication.</strong></p>
     <div class="banner">
       <p>Now we are putting the spotlight on <strong style="color: #22d481;">Meshtastic-Compatible Gear</strong>, offering affiliates <span class="big-num" style="font-size: 2.5rem;">10%</span> commission on referred sales.</p>
-      <p style="margin-top: 4px;">Ideal for smart home fans, HA content creators &amp; DIY enthusiasts.</p>
-      <p style="margin-top: 4px;">Wide selection of products for different scenarios. Higher earning potential with focused content.</p>
       <div class="tags">
         <span class="tag">Smart Home</span>
         <span class="tag">Home Assistant</span>
@@ -600,7 +598,7 @@ body {
         <li>Promote robust, decentralized communication solutions.</li>
         <li>Ideal for outdoor adventurers, off-grid communication enthusiasts, and tech innovators.</li>
       </ul>
-      <a href="#" class="btn btn-primary" style="margin-top: 16px; font-size: 0.9rem;">See program details</a>
+      <a href="https://docs.google.com/spreadsheets/d/1MIUBYAokPd80407hj6Cf8hqwyL0tMvIvSw8v6tQEbSg/edit?gid=0#gid=0" target="_blank" class="btn btn-primary" style="margin-top: 16px; font-size: 0.9rem;">See program details</a>
     </div>
   </div>
 </section>
@@ -737,4 +735,7 @@ body {
       const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
       g.addColorStop(0, `rgba(163,230,53,${a})`); g.addColorStop(1, 'rgba(163,230,53,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = `rgba(163,230,53,${a + 0.
+      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+    }
+    for (const p of particles) {
+      p.t += p.s
