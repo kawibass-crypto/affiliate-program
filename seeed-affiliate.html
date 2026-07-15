@@ -493,64 +493,6 @@ body {
   </div>
 </section>
 
-<!-- ═══════════ WHAT WE HOPE FROM YOU ═══════════ -->
-<section class="section" style="background: var(--bg2);">
-  <div class="section-inner fade-in">
-    <h2>What We Hope From You？</h2>
-    <div class="cards" style="margin-top: 28px;">
-      <div class="card">
-        <div class="icon">🎥</div>
-        <h3>Create Content</h3>
-        <p>Create content using Seeed products (reviews, tutorials, project showcases)</p>
-      </div>
-      <div class="card">
-        <div class="icon">🔗</div>
-        <h3>Share Your Links</h3>
-        <p>Share affiliate links across your platforms (YouTube, blogs, social media, etc.)</p>
-      </div>
-      <div class="card">
-        <div class="icon">🌍</div>
-        <h3>Inspire Community</h3>
-        <p>Inspire your community and help spread innovative tech globally</p>
-      </div>
-      <div class="card">
-        <div class="icon">📈</div>
-        <h3>Grow With Us</h3>
-        <p>Grow with us by joining affiliate promotions</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ WHAT YOU'LL GET ═══════════ -->
-<section class="section" id="benefits">
-  <div class="section-inner fade-in">
-    <h2>What You'll Get？</h2>
-    <div class="cards" style="margin-top: 28px;">
-      <div class="card">
-        <div class="icon">🎁</div>
-        <h3>Free & Early Access</h3>
-        <p>Free or early access to Seeed hardware (for selected creators)</p>
-      </div>
-      <div class="card">
-        <div class="icon">💰</div>
-        <h3>Earn Commissions</h3>
-        <p>Commissions on every successful sale through your unique link</p>
-      </div>
-      <div class="card">
-        <div class="icon">📊</div>
-        <h3>Real-Time Dashboard</h3>
-        <p>Real-time performance dashboard</p>
-      </div>
-      <div class="card">
-        <div class="icon">🚀</div>
-        <h3>Official Exposure</h3>
-        <p>Exposure via Seeed's official channels</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════ XIAO SERIES CAMPAIGN ═══════════ -->
 <section class="section" style="background: var(--bg2);" id="campaigns">
   <div class="section-inner fade-in">
@@ -732,4 +674,37 @@ body {
       ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
     }
     for (const p of particles) {
-      p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(
+      p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(Math.random() * nodes.length)]; p.b = nodes[~~(Math.random() * nodes.length)]; }
+      const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
+      ctx.fillStyle = 'rgba(163,230,53,0.55)'; ctx.beginPath(); ctx.arc(x, y, p.sz, 0, Math.PI * 2); ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
+})();
+
+// Nav scroll
+addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement, was = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
+  if (!was) item.classList.add('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Fallback: show all after 2s in case observer fails
+setTimeout(() => {
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('vis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
