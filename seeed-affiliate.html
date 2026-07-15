@@ -232,8 +232,60 @@ body {
   content: '·'; position: absolute; left: 0; color: var(--green); font-weight: 700;
 }
 
-/* Banner */
-.banner {
+/* XIAO Section */
+.xiao-section {
+  position: relative; z-index: 1;
+  padding: 90px 24px;
+  background: url('BG.png') center/cover no-repeat;
+}
+.xiao-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+.xiao-card {
+  position: relative; display: flex; align-items: stretch;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  margin-top: 28px;
+}
+.xiao-text {
+  flex: 1; padding: 36px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.xiao-text p {
+  color: var(--text2); font-size: 0.92rem; line-height: 1.7;
+  margin-bottom: 12px;
+}
+.xiao-text ul {
+  list-style: none; padding: 0; margin-bottom: 12px;
+}
+.xiao-text li {
+  color: var(--text2); font-size: 0.9rem; padding: 4px 0;
+  padding-left: 18px; position: relative; line-height: 1.6;
+}
+.xiao-text li::before {
+  content: '▸'; position: absolute; left: 0; color: var(--green);
+}
+.xiao-img {
+  flex: 0 0 45%; position: relative; overflow: hidden;
+}
+.xiao-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.xiao-img-gradient {
+  position: absolute; top: 0; left: 0; bottom: 0; width: 60%;
+  background: linear-gradient(to right, var(--card), transparent);
+  z-index: 1; pointer-events: none;
+}
+@media (max-width: 768px) {
+  .xiao-card { flex-direction: column-reverse; }
+  .xiao-img { flex: 0 0 200px; }
+  .xiao-img-gradient {
+    width: 100%; height: 60%; top: 0; left: 0;
+    background: linear-gradient(to bottom, var(--card), transparent);
+  }
+}
   background: linear-gradient(135deg, rgba(163, 230, 53, 0.05), rgba(132, 204, 22, 0.03));
   border: 1px solid rgba(163, 230, 53, 0.15);
   border-radius: var(--radius-lg); padding: 40px; margin: 16px 0 0;
@@ -494,22 +546,25 @@ body {
 </section>
 
 <!-- ═══════════ XIAO SERIES CAMPAIGN ═══════════ -->
-<section class="section" style="background: var(--bg2);" id="campaigns">
-  <div class="section-inner fade-in">
+<section class="xiao-section" id="campaigns">
+  <div class="xiao-overlay"></div>
+  <div class="section-inner fade-in" style="position: relative; z-index: 1;">
     <h2>XIAO Series Promotion Affiliate Campaign</h2>
-    <div class="banner">
-      <p style="margin-bottom: 16px;">Join our Creator &amp; Affiliate Program and start promoting our <strong style="color: var(--text);">XIAO Series</strong> dev boards today!</p>
-      <div style="display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 20px;">
-        <div>
-          <div class="big-num" style="font-size: 2.2rem;">8%</div>
-          <p style="font-size: 0.85rem; color: var(--text3);">Commission</p>
-        </div>
-        <div>
-          <div class="big-num" style="font-size: 2.2rem;">2%</div>
-          <p style="font-size: 0.85rem; color: var(--text3);">Follower Discount</p>
-        </div>
+    <div class="xiao-card">
+      <div class="xiao-text">
+        <p>Join our new affiliate campaign centered on Seeed's powerful yet compact <strong>XIAO Series</strong> dev boards. Whether you are into wearables, IoT, or embedded projects, Seeed XIAO line is your ideal toolset.</p>
+        <ul>
+          <li>Earn 8% commission on every sale</li>
+          <li>Give your followers 2% off with your custom code</li>
+          <li>All creators, makers, and engineers are welcome!</li>
+        </ul>
+        <p>Join our Creator &amp; Affiliate Program and start promoting our XIAO Series gadgets today!</p>
+        <a href="https://docs.google.com/spreadsheets/d/1YJczb1-lhSuZPXMlIxb_JtrEgdauSlXgSyXjXcqgd_Q/edit?gid=0#gid=0" class="btn btn-primary" style="margin-top: 16px;">Selected XIAO Series Promotion</a>
       </div>
-      <a href="#" class="btn btn-primary" style="font-size: 0.9rem;">Selected XIAO Series Promotion</a>
+      <div class="xiao-img">
+        <div class="xiao-img-gradient"></div>
+        <img src="xiao01.png" alt="XIAO Series">
+      </div>
     </div>
   </div>
 </section>
@@ -676,35 +731,4 @@ body {
     for (const p of particles) {
       p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(Math.random() * nodes.length)]; p.b = nodes[~~(Math.random() * nodes.length)]; }
       const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
-      ctx.fillStyle = 'rgba(163,230,53,0.55)'; ctx.beginPath(); ctx.arc(x, y, p.sz, 0, Math.PI * 2); ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
-})();
-
-// Nav scroll
-addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
-
-// FAQ
-function toggleFaq(btn) {
-  const item = btn.parentElement, was = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
-  if (!was) item.classList.add('open');
-}
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Fallback: show all after 2s in case observer fails
-setTimeout(() => {
-  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('vis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+      ctx.fillStyle = 'rgba(163,230,53,0.55)'; ctx.beginPath(); ctx.arc(x, y, p.sz, 0,
