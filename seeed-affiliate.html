@@ -253,14 +253,12 @@ body {
   background: rgba(0, 0, 0, 0.7);
   z-index: 0;
 }
-.xiao-card {
+.xiao-content {
   position: relative; display: flex; align-items: stretch;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); overflow: hidden;
   margin-top: 28px;
 }
 .xiao-text {
-  flex: 1; padding: 36px;
+  flex: 1; padding: 0 36px 0 0;
   display: flex; flex-direction: column; justify-content: center;
 }
 .xiao-text p {
@@ -278,23 +276,16 @@ body {
   content: '▸'; position: absolute; left: 0; color: var(--green);
 }
 .xiao-img {
-  flex: 0 0 45%; position: relative; overflow: hidden;
+  flex: 0 0 45%; position: relative;
 }
 .xiao-img img {
   width: 100%; height: 100%; object-fit: cover; display: block;
-}
-.xiao-img-gradient {
-  position: absolute; top: 0; left: 0; bottom: 0; width: 60%;
-  background: linear-gradient(to right, var(--card), transparent);
-  z-index: 1; pointer-events: none;
+  border-radius: var(--radius-lg);
 }
 @media (max-width: 768px) {
-  .xiao-card { flex-direction: column-reverse; }
+  .xiao-content { flex-direction: column-reverse; }
   .xiao-img { flex: 0 0 200px; }
-  .xiao-img-gradient {
-    width: 100%; height: 60%; top: 0; left: 0;
-    background: linear-gradient(to bottom, var(--card), transparent);
-  }
+  .xiao-text { padding: 24px 0 0 0; }
 }
   background: linear-gradient(135deg, rgba(163, 230, 53, 0.05), rgba(132, 204, 22, 0.03));
   border: 1px solid rgba(163, 230, 53, 0.15);
@@ -560,7 +551,7 @@ body {
   <div class="xiao-overlay"></div>
   <div class="section-inner fade-in" style="position: relative; z-index: 1;">
     <h2>XIAO Series Promotion Affiliate Campaign</h2>
-    <div class="xiao-card">
+    <div class="xiao-content">
       <div class="xiao-text">
         <p>Join our new affiliate campaign centered on Seeed's powerful yet compact <strong>XIAO Series</strong> dev boards. Whether you are into wearables, IoT, or embedded projects, Seeed XIAO line is your ideal toolset.</p>
         <ul>
@@ -572,7 +563,6 @@ body {
         <a href="https://docs.google.com/spreadsheets/d/1YJczb1-lhSuZPXMlIxb_JtrEgdauSlXgSyXjXcqgd_Q/edit?gid=0#gid=0" class="btn btn-primary" style="margin-top: 16px;">Selected XIAO Series Promotion</a>
       </div>
       <div class="xiao-img">
-        <div class="xiao-img-gradient"></div>
         <img src="product.png" alt="XIAO Series">
       </div>
     </div>
@@ -739,3 +729,16 @@ body {
   draw();
   let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
 })();
+
+// Nav scroll
+addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement, was = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
+  if (!was) item.classList.add('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((ent
