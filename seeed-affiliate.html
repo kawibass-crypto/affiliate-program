@@ -155,6 +155,10 @@ body {
   color: var(--text2); font-size: 0.98rem;
   max-width: 580px; margin-bottom: 40px; line-height: 1.7;
 }
+.section .subtitle {
+  color: var(--text); font-size: 1rem;
+  margin-bottom: 28px; line-height: 1.6;
+}
 
 /* Cards */
 .cards {
@@ -579,6 +583,7 @@ body {
 <section class="section">
   <div class="section-inner fade-in">
     <h2>Affiliate Program for<br>Meshtastic-Compatible Gear</h2>
+    <p class="subtitle"><strong>Join us and empower your audience with cutting-edge Meshtastic devices for reliable off-grid communication.</strong></p>
     <div class="banner">
       <p>Now we are putting the spotlight on <strong style="color: #22d481;">Meshtastic-Compatible Gear</strong>, offering affiliates <span class="big-num" style="font-size: 2.5rem;">10%</span> commission on referred sales.</p>
       <p style="margin-top: 4px;">Ideal for smart home fans, HA content creators &amp; DIY enthusiasts.</p>
@@ -732,8 +737,4 @@ body {
       const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
       g.addColorStop(0, `rgba(163,230,53,${a})`); g.addColorStop(1, 'rgba(163,230,53,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
-    }
-    for (const p of particles) {
-      p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(Math.random() * nodes.length)]; p.b = nodes[~~(Math.random() * nodes.length)]; }
-   
+      ctx.fillStyle = `rgba(163,230,53,${a + 0.
