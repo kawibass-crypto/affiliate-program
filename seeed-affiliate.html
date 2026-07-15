@@ -95,7 +95,7 @@ body {
 }
 .hero-inner {
   position: relative; z-index: 1;
-  display: flex; align-items: center; gap: 60px;
+  display: flex; align-items: center; justify-content: center; gap: 60px;
   max-width: 1600px; width: 100%;
 }
 .hero-text {
@@ -716,6 +716,3 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 setTimeout(() => {
   document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
 }, 2000);
-</script>
-</body>
-</html>
