@@ -290,7 +290,7 @@ body {
   z-index: 0;
 }
 .xiao-content {
-  position: relative; display: flex; align-items: center;
+  position: relative; display: flex; align-items: flex-start;
   margin-top: 28px; gap: 48px;
 }
 .xiao-text {
@@ -755,4 +755,4 @@ body {
       const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
       g.addColorStop(0, `rgba(163,230,53,${a})`); g.addColorStop(1, 'rgba(163,230,53,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.
+      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x
