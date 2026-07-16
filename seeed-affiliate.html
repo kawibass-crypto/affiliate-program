@@ -48,6 +48,7 @@ body {
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 14px 0; transition: background 0.3s, backdrop-filter 0.3s;
+  background: rgba(0, 0, 0, 0.5);
 }
 .nav.scrolled {
   background: rgba(8, 12, 15, 0.88);
@@ -737,5 +738,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 // FAQ toggle
 function toggleFaq(btn) {
   const item = btn.parentElement, was = item.classList.contains('open');
-  item.parentElement.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
-  if (!was) item.classList.add(
+  item.parentElement.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open')
