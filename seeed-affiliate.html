@@ -357,13 +357,19 @@ body {
 .howitworks-section {
   position: relative; z-index: 1;
   padding: 90px 24px;
-  background: #000;
+  background: #0a1a0a;
 }
 .howitworks-section::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   background: url('BG04.png?v=2') center/cover no-repeat;
-  opacity: 0.5;
+  opacity: 0.4;
+  z-index: 0;
+}
+.howitworks-section::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 40, 10, 0.6);
   z-index: 0;
 }
 
@@ -778,8 +784,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         <summary class="faq-cat-btn">3. Orders &amp; Invoices <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <p>Q: Will I earn commissions if a referred order is cancelled?<br>A: No. Commissions apply only to completed orders. Cancelled orders void associated commissions.</p>
-          <p>Q: Can you provide an Invoice Template?<br>A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank">Download the template here</a> and edit the yellow highlighted fields with your details.</p>
-        </div>
-      </details>
-      <details class="faq-group">
-        <summary class="faq-cat-btn">4. Terms and Conditions <span class="arrow">▼</sp
+          <p>Q: Can you provide an Invoice Template?<br>A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank">Download the template here</a> and edit the yellow highlighted fields with your details.
