@@ -641,10 +641,10 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 <section class="xiao-section" id="campaigns">
   <div class="xiao-overlay"></div>
   <div class="section-inner fade-in" style="position: relative; z-index: 1;">
-    <h2>XIAO Series Promotion<br>Affiliate Campaign</h2>
+    <h2>XIAO Series Promotion<br><span style="color: var(--green);">Affiliate Campaign</span></h2>
     <div class="xiao-content">
       <div class="xiao-text">
-        <p>Join our new affiliate campaign centered on Seeed's powerful yet compact <strong>XIAO Series</strong> dev boards. Whether you are into wearables, IoT, or embedded projects, Seeed XIAO line is your ideal toolset.</p>
+        <p style="color: #fff; font-weight: 700;">Join our new affiliate campaign centered on Seeed's powerful yet compact <strong>XIAO Series</strong> dev boards. Whether you are into wearables, IoT, or embedded projects, Seeed XIAO line is your ideal toolset.</p>
         <ul>
           <li>Earn 8% commission on every sale</li>
           <li>Give your followers 2% off with your custom code</li>
@@ -777,5 +777,4 @@ function toggleFaqGroup(btn) {
   function mkNodes() {
     nodes = [];
     const n = ~~((w * h) / 30000);
-    for (let i = 0; i < n; i++) nodes.push({
-      x: Math.random() * w, y: Math.random(
+    for
