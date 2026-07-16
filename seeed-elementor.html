@@ -1,28 +1,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
-:root {
-  --bg: #080C0F;
-  --bg2: #0D1217;
-  --card: #11161B;
-  --card-hover: #161C23;
-  --border: rgba(255,255,255,0.06);
-  --border-glow: rgba(163, 230, 53, 0.18);
-  --green: #A3E635;
-  --green-dim: rgba(163, 230, 53, 0.07);
-  --green-mid: rgba(163, 230, 53, 0.12);
-  --text: #E6EDF3;
-  --text2: #8B949E;
-  --text3: #5D6778;
-  --radius: 12px;
-  --radius-lg: 18px;
-}
+
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: #080C0F;
+  color: #E6EDF3;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -47,7 +32,7 @@ body {
   background: rgba(8, 12, 15, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .nav-inner {
   max-width: 1300px; margin: 0 auto; padding: 0 24px;
@@ -58,12 +43,12 @@ body {
 }
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
-  color: var(--text2); text-decoration: none; font-size: 0.88rem;
+  color: #8B949E; text-decoration: none; font-size: 0.88rem;
   font-weight: 500; transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--text); }
+.nav-links a:hover { color: #E6EDF3; }
 .nav-cta {
-  background: var(--green); color: #0A0F00;
+  background: #A3E635; color: #0A0F00;
   padding: 8px 20px; border-radius: 8px; font-weight: 600;
   font-size: 0.85rem; text-decoration: none;
   font-family: 'Space Grotesk', sans-serif;
@@ -99,7 +84,7 @@ body {
   margin: 0 0 16px;
 }
 .hero-text p {
-  color: var(--text2); font-size: 1.05rem;
+  color: #8B949E; font-size: 1.05rem;
   margin: 0 0 28px; line-height: 1.7;
 }
 .hero-img {
@@ -122,14 +107,14 @@ body {
   cursor: pointer; border: none;
 }
 .btn-primary {
-  background: var(--green); color: #0A0F00;
+  background: #A3E635; color: #0A0F00;
 }
 .btn-primary:hover { box-shadow: 0 0 36px rgba(163, 230, 53, 0.4); transform: translateY(-2px); }
 .btn-outline {
-  background: transparent; color: var(--text);
+  background: transparent; color: #E6EDF3;
   border: 1px solid rgba(255,255,255,0.15);
 }
-.btn-outline:hover { border-color: var(--green); background: var(--green-dim); }
+.btn-outline:hover { border-color: #A3E635; background: rgba(163,230,53,0.07); }
 
 /* Section */
 .section {
@@ -140,14 +125,14 @@ body {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(3.2rem, 6vw, 4.4rem);
   font-weight: 700; letter-spacing: -0.02em;
-  margin-bottom: 12px; line-height: 1.25; color: var(--text);
+  margin-bottom: 12px; line-height: 1.25; color: #E6EDF3;
 }
 .section .desc {
-  color: var(--text2); font-size: 0.98rem;
+  color: #8B949E; font-size: 0.98rem;
   max-width: 580px; margin-bottom: 40px; line-height: 1.7;
 }
 .section .subtitle {
-  color: var(--text); font-size: 1rem;
+  color: #E6EDF3; font-size: 1rem;
   margin-bottom: 28px; line-height: 1.6;
 }
 
@@ -158,13 +143,13 @@ body {
   gap: 16px;
 }
 .card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 28px 28px 24px;
+  background: #11161B; border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px; padding: 28px 28px 24px;
   transition: all 0.3s;
 }
 .card:hover {
-  background: var(--card-hover);
-  border-color: var(--border-glow);
+  background: #161C23;
+  border-color: rgba(163,230,53,0.18);
   transform: translateY(-3px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.5);
 }
@@ -176,7 +161,7 @@ body {
   font-size: 1.05rem; font-weight: 600; margin-bottom: 6px;
 }
 .card p {
-  color: var(--text2); font-size: 0.88rem; line-height: 1.6;
+  color: #8B949E; font-size: 0.88rem; line-height: 1.6;
 }
 
 /* List style cards */
@@ -185,25 +170,25 @@ body {
 }
 .list-card {
   display: flex; align-items: flex-start; gap: 16px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 20px 24px;
+  background: #11161B; border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px; padding: 20px 24px;
   transition: all 0.3s;
 }
-.list-card:hover { border-color: var(--border-glow); background: var(--card-hover); }
+.list-card:hover { border-color: rgba(163,230,53,0.18); background: #161C23; }
 .list-card .marker {
-  color: var(--green); font-family: 'JetBrains Mono', monospace;
+  color: #A3E635; font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem; font-weight: 600; margin-top: 2px;
   flex-shrink: 0;
 }
-.list-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.6; }
+.list-card p { color: #8B949E; font-size: 0.9rem; line-height: 1.6; }
 
 /* Image cards */
 .img-card {
-  position: relative; border-radius: var(--radius-lg); overflow: hidden;
-  border: 1px solid var(--border); transition: all 0.3s;
+  position: relative; border-radius: 18px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s;
   box-shadow: 0 0 12px rgba(163, 230, 53, 0.12);
 }
-.img-card:hover { border-color: var(--border-glow); transform: translateY(-3px); box-shadow: 0 0 24px rgba(163, 230, 53, 0.25); }
+.img-card:hover { border-color: rgba(163,230,53,0.18); transform: translateY(-3px); box-shadow: 0 0 24px rgba(163, 230, 53, 0.25); }
 .img-card img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   aspect-ratio: 1;
@@ -215,17 +200,17 @@ body {
 }
 .img-card h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.1rem; font-weight: 600; margin-bottom: 8px; color: var(--green);
+  font-size: 2.1rem; font-weight: 600; margin-bottom: 8px; color: #A3E635;
 }
 .img-card ul {
   list-style: none; padding: 0;
 }
 .img-card li {
-  color: var(--text2); font-size: 0.85rem; padding: 2px 0;
+  color: #8B949E; font-size: 0.85rem; padding: 2px 0;
   padding-left: 14px; position: relative; line-height: 1.6;
 }
 .img-card li::before {
-  content: '·'; position: absolute; left: 0; color: var(--green); font-weight: 700;
+  content: '·'; position: absolute; left: 0; color: #A3E635; font-weight: 700;
 }
 
 /* Meshtastic Section */
@@ -244,11 +229,11 @@ body {
   list-style: none; padding: 0; margin-bottom: 16px;
 }
 .meshtastic-section li {
-  color: var(--text2); font-size: 0.9rem; padding: 4px 0;
+  color: #8B949E; font-size: 0.9rem; padding: 4px 0;
   padding-left: 18px; position: relative; line-height: 1.6;
 }
 .meshtastic-section li::before {
-  content: '▸'; position: absolute; left: 0; color: var(--green);
+  content: '▸'; position: absolute; left: 0; color: #A3E635;
 }
 .meshtastic-content {
   display: flex; align-items: center; gap: 48px;
@@ -260,7 +245,7 @@ body {
   flex: 0 0 40%;
 }
 .meshtastic-img img {
-  width: 100%; display: block; border-radius: var(--radius-lg);
+  width: 100%; display: block; border-radius: 18px;
 }
 @media (max-width: 768px) {
   .meshtastic-content { flex-direction: column; }
@@ -289,24 +274,24 @@ body {
   flex: 1; max-width: 500px;
 }
 .xiao-text p {
-  color: var(--text2); font-size: 0.92rem; line-height: 1.7;
+  color: #8B949E; font-size: 0.92rem; line-height: 1.7;
   margin-bottom: 12px;
 }
 .xiao-text ul {
   list-style: none; padding: 0; margin-bottom: 12px;
 }
 .xiao-text li {
-  color: var(--text2); font-size: 0.9rem; padding: 4px 0;
+  color: #8B949E; font-size: 0.9rem; padding: 4px 0;
   padding-left: 18px; position: relative; line-height: 1.6;
 }
 .xiao-text li::before {
-  content: '▸'; position: absolute; left: 0; color: var(--green);
+  content: '▸'; position: absolute; left: 0; color: #A3E635;
 }
 .xiao-img {
   flex: 0 0 42%; margin-top: -30px;
 }
 .xiao-img img {
-  width: 100%; display: block; border-radius: var(--radius-lg);
+  width: 100%; display: block; border-radius: 18px;
 }
 @media (max-width: 768px) {
   .xiao-content { flex-direction: column; gap: 24px; }
@@ -314,7 +299,7 @@ body {
 .banner {
   background: linear-gradient(135deg, rgba(163, 230, 53, 0.05), rgba(132, 204, 22, 0.03));
   border: 1px solid rgba(163, 230, 53, 0.15);
-  border-radius: var(--radius-lg); padding: 40px; margin: 16px 0 0;
+  border-radius: 18px; padding: 40px; margin: 16px 0 0;
 }
 .banner h3 {
   font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem;
@@ -322,25 +307,25 @@ body {
 }
 .banner .big-num {
   font-family: 'JetBrains Mono', monospace; font-size: 3rem; font-weight: 700;
-  color: var(--green); line-height: 1; margin-bottom: 6px;
+  color: #A3E635; line-height: 1; margin-bottom: 6px;
   display: inline-block;
 }
-.banner p { color: var(--text2); max-width: 540px; line-height: 1.7; }
+.banner p { color: #8B949E; max-width: 540px; line-height: 1.7; }
 .banner .tags {
   display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;
 }
 .tag {
-  background: var(--green-mid); color: var(--green);
+  background: rgba(163,230,53,0.12); color: #A3E635;
   padding: 5px 12px; border-radius: 100px; font-size: 0.78rem;
   font-weight: 500; border: 1px solid rgba(163, 230, 53, 0.2);
 }
 .banner ul { margin-top: 16px; list-style: none; }
 .banner ul li {
-  color: var(--text2); font-size: 0.88rem;
+  color: #8B949E; font-size: 0.88rem;
   padding: 5px 0; padding-left: 18px; position: relative; line-height: 1.6;
 }
 .banner ul li::before {
-  content: '▸'; position: absolute; left: 0; color: var(--green);
+  content: '▸'; position: absolute; left: 0; color: #A3E635;
 }
 
 /* How It Works */
@@ -374,7 +359,7 @@ body {
 }
 .flow-circle {
   width: 44px; height: 44px; border-radius: 50%;
-  background: var(--green); color: #0A0F00;
+  background: #A3E635; color: #0A0F00;
   display: flex; align-items: center; justify-content: center;
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem; font-weight: 700;
@@ -389,10 +374,10 @@ body {
 }
 .flow-label {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.7rem; font-weight: 600; color: var(--text);
+  font-size: 1.7rem; font-weight: 600; color: #E6EDF3;
 }
 .flow-line {
-  width: 60px; height: 2px; background: var(--green);
+  width: 60px; height: 2px; background: #A3E635;
   margin: 0 8px; margin-bottom: 24px;
 }
 @media (max-width: 768px) {
@@ -406,12 +391,12 @@ body {
   gap: 16px;
 }
 .step {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 28px;
+  background: #11161B; border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px; padding: 28px;
   transition: all 0.3s;
   height: 100%;
 }
-.step:hover { border-color: var(--border-glow); }
+.step:hover { border-color: rgba(163,230,53,0.18); }
 .step-icon {
   width: 128px; height: 128px;
   margin: 0 auto 16px;
@@ -422,10 +407,10 @@ body {
   font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
   margin-bottom: 6px;
 }
-.step p { color: var(--text2); font-size: 0.88rem; line-height: 1.6; }
+.step p { color: #8B949E; font-size: 0.88rem; line-height: 1.6; }
 .step-link {
   display: inline-block; margin-top: 10px;
-  color: var(--green); font-size: 0.85rem; font-weight: 500;
+  color: #A3E635; font-size: 0.85rem; font-weight: 500;
   text-decoration: none; transition: color 0.2s;
 }
 .step-link:hover { color: #C0FF40; }
@@ -438,8 +423,8 @@ body {
   box-shadow: 0 0 12px rgba(163, 230, 53, 0.15), inset 0 0 12px rgba(163, 230, 53, 0.05);
 }
 .steps-light .step:hover { box-shadow: 0 0 20px rgba(163, 230, 53, 0.3), inset 0 0 16px rgba(163, 230, 53, 0.1); }
-.steps-light .step h4 { color: var(--text); }
-.steps-light .step p { color: var(--text2); }
+.steps-light .step h4 { color: #E6EDF3; }
+.steps-light .step p { color: #8B949E; }
 
 /* Comparison */
 .compare {
@@ -447,56 +432,56 @@ body {
   gap: 20px;
 }
 .compare-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 32px;
+  background: #11161B; border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px; padding: 32px;
   transition: all 0.3s;
 }
-.compare-card:hover { border-color: var(--border-glow); }
+.compare-card:hover { border-color: rgba(163,230,53,0.18); }
 .compare-card h3 {
   font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem;
   margin-bottom: 12px;
 }
-.compare-card p { color: var(--text2); font-size: 0.88rem; line-height: 1.6; }
+.compare-card p { color: #8B949E; font-size: 0.88rem; line-height: 1.6; }
 
 /* FAQ */
 .faq { display: flex; flex-direction: column; gap: 10px; }
 .faq-item {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius); overflow: hidden;
+  background: #11161B; border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px; overflow: hidden;
   transition: border-color 0.3s;
 }
 .faq-item:hover { border-color: rgba(255,255,255,0.1); }
 .faq-q {
   width: 100%; background: none; border: none;
-  color: var(--text); font-family: 'Space Grotesk', sans-serif;
+  color: #E6EDF3; font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem; font-weight: 600; padding: 18px 22px;
   text-align: left; cursor: pointer;
   display: flex; justify-content: space-between; align-items: center;
   gap: 12px; transition: color 0.2s;
 }
-.faq-q:hover { color: var(--green); }
-.faq-q .arrow { font-size: 0.7rem; color: var(--text3); transition: transform 0.3s; flex-shrink: 0; }
-.faq-item.open .faq-q .arrow { transform: rotate(180deg); color: var(--green); }
+.faq-q:hover { color: #A3E635; }
+.faq-q .arrow { font-size: 0.7rem; color: #5D6778; transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-q .arrow { transform: rotate(180deg); color: #A3E635; }
 .faq-a {
   max-height: 0; overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
   padding: 0 22px;
 }
 .faq-item.open .faq-a { max-height: 500px; padding: 0 22px 18px; }
-.faq-a p, .faq-a li { color: var(--text2); font-size: 0.87rem; line-height: 1.7; }
+.faq-a p, .faq-a li { color: #8B949E; font-size: 0.87rem; line-height: 1.7; }
 .faq-a ul { padding-left: 18px; }
 .faq-a li { padding: 2px 0; }
 .faq-cat-btn {
-  width: 100%; background: var(--card); border: 1px solid var(--border);
-  color: var(--green); font-family: 'Space Grotesk', sans-serif;
+  width: 100%; background: #11161B; border: 1px solid rgba(255,255,255,0.06);
+  color: #A3E635; font-family: 'Space Grotesk', sans-serif;
   font-size: 1.05rem; font-weight: 700; padding: 16px 22px;
   text-align: left; cursor: pointer;
   display: flex; justify-content: space-between; align-items: center;
-  border-radius: var(--radius); transition: all 0.3s;
+  border-radius: 12px; transition: all 0.3s;
   margin-bottom: 8px; list-style: none;
 }
 .faq-cat-btn::-webkit-details-marker { display: none; }
-.faq-cat-btn:hover { border-color: var(--border-glow); }
+.faq-cat-btn:hover { border-color: rgba(163,230,53,0.18); }
 .faq-cat-btn .arrow { font-size: 0.7rem; transition: transform 0.3s; }
 details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 .faq-group-content {
@@ -523,14 +508,14 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 }
 .footer-right h3 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.1rem; font-weight: 700; color: var(--text);
+  font-size: 1.1rem; font-weight: 700; color: #E6EDF3;
   margin-bottom: 8px;
 }
 .footer-right p {
-  color: var(--text2); font-size: 0.95rem;
+  color: #8B949E; font-size: 0.95rem;
 }
 .footer-right a {
-  color: var(--green); text-decoration: none;
+  color: #A3E635; text-decoration: none;
 }
 .footer-right a:hover { text-decoration: underline; }
 @media (max-width: 768px) {
@@ -538,15 +523,15 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
   .footer-right { text-align: center; }
 }
 .footer-legal {
-  border-top: 1px solid var(--border); padding: 32px 24px;
-  text-align: center; color: var(--text3); font-size: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 24px;
+  text-align: center; color: #5D6778; font-size: 0.8rem;
   position: relative; z-index: 1;
 }
-.footer-legal a { color: var(--text2); text-decoration: underline; text-underline-offset: 3px; }
+.footer-legal a { color: #8B949E; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Note */
 .note {
-  color: var(--text3); font-size: 0.82rem; margin-top: 16px;
+  color: #5D6778; font-size: 0.82rem; margin-top: 16px;
   text-align: center;
 }
 
@@ -595,7 +580,7 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <h1>Create. Share. Earn with <span style="color: var(--green);">Seeed.</span></h1>
+      <h1>Create. Share. Earn with <span style="color: #A3E635;">Seeed.</span></h1>
       <p>Join Seeed's Creator &amp; Affiliate Program to share open-source hardware, inspire your audience, and earn from successful referrals.</p>
       <a href="https://www.seeedstudio.com/customer/account/create/" class="btn btn-primary">Join Affiliate Program</a>
     </div>
@@ -608,7 +593,7 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 <!-- ═══════════ HOW TO PARTICIPATE ═══════════ -->
 <section class="section howitworks-section" id="howto">
   <div class="section-inner fade-in" style="position: relative; z-index: 1;">
-    <h2 style="text-align: center; color: var(--text);">How It Works</h2>
+    <h2 style="text-align: center; color: #E6EDF3;">How It Works</h2>
     <div class="steps steps-light" style="margin-top: 28px;">
       <div class="step-col">
         <div class="flow-step-item">
@@ -699,7 +684,7 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 <section class="xiao-section" id="campaigns">
   <div class="xiao-overlay"></div>
   <div class="section-inner fade-in" style="position: relative; z-index: 1;">
-    <h2>XIAO Series Promotion<br><span style="color: var(--green);">Affiliate Campaign</span></h2>
+    <h2>XIAO Series Promotion<br><span style="color: #A3E635;">Affiliate Campaign</span></h2>
     <div class="xiao-content">
       <div class="xiao-text">
         <p style="color: #fff; font-weight: 700;">Join our new affiliate campaign centered on Seeed's powerful yet compact <strong>XIAO Series</strong> dev boards. Whether you are into wearables, IoT, or embedded projects, Seeed XIAO line is your ideal toolset.</p>
@@ -723,7 +708,7 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         <img src="product.png" alt="Meshtastic Gear">
       </div>
       <div class="meshtastic-text">
-        <h2>Affiliate Program for<br><span style="color: var(--green);">Meshtastic-Compatible Gear</span></h2>
+        <h2>Affiliate Program for<br><span style="color: #A3E635;">Meshtastic-Compatible Gear</span></h2>
         <p class="subtitle"><strong>Join us and empower your audience with cutting-edge Meshtastic devices for reliable off-grid communication.</strong></p>
         <ul>
           <li>Benefit from competitive commissions and exclusive discounts for your audience.</li>
@@ -737,7 +722,7 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 </section>
 
 <!-- ═══════════ FAQ ═══════════ -->
-<section class="section" style="background: var(--bg2);" id="faq">
+<section class="section" style="background: #0D1217;" id="faq">
   <div class="section-inner fade-in">
     <h2>FAQ</h2>
     <div class="faq" style="margin-top: 28px;">
@@ -776,13 +761,13 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         <summary class="faq-cat-btn">3. Orders &amp; Invoices <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <p>Q: Will I earn commissions if a referred order is cancelled?<br>A: No. Commissions apply only to completed orders. Cancelled orders void associated commissions.</p>
-          <p>Q: Can you provide an Invoice Template?<br>A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank" style="color: var(--green); text-decoration: underline;">Download the template here</a> and edit the yellow highlighted fields with your details.</p>
+          <p>Q: Can you provide an Invoice Template?<br>A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank" style="color: #A3E635; text-decoration: underline;">Download the template here</a> and edit the yellow highlighted fields with your details.</p>
         </div>
       </details>
       <details class="faq-group">
         <summary class="faq-cat-btn">4. Terms and Conditions <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="https://www.seeedstudio.com/amasty-affiliate-conditions" target="_blank" style="color: var(--green); text-decoration: underline;">Affiliate Program Terms &amp; Conditions</a>.</p>
+          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="https://www.seeedstudio.com/amasty-affiliate-conditions" target="_blank" style="color: #A3E635; text-decoration: underline;">Affiliate Program Terms &amp; Conditions</a>.</p>
         </div>
       </details>
     </div>
