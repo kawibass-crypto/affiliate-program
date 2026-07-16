@@ -258,6 +258,21 @@ body {
 .meshtastic-section li::before {
   content: '▸'; position: absolute; left: 0; color: var(--green);
 }
+.meshtastic-content {
+  display: flex; align-items: center; gap: 48px;
+}
+.meshtastic-text {
+  flex: 1;
+}
+.meshtastic-img {
+  flex: 0 0 40%;
+}
+.meshtastic-img img {
+  width: 100%; display: block; border-radius: var(--radius-lg);
+}
+@media (max-width: 768px) {
+  .meshtastic-content { flex-direction: column; }
+}
 .xiao-section {
   position: relative; z-index: 1;
   padding: 90px 24px;
@@ -589,15 +604,22 @@ body {
 
 <!-- ═══════════ HOME ASSISTANT 10% ═══════════ -->
 <section class="meshtastic-section">
-  <div class="section-inner fade-in" style="position: relative; z-index: 1; text-align: center;">
-    <h2>Affiliate Program for<br><span style="color: var(--green);">Meshtastic-Compatible Gear</span></h2>
-    <p class="subtitle"><strong>Join us and empower your audience with cutting-edge Meshtastic devices for reliable off-grid communication.</strong></p>
-    <ul style="display: inline-block; text-align: left;">
-      <li>Benefit from competitive commissions and exclusive discounts for your audience.</li>
-      <li>Promote robust, decentralized communication solutions.</li>
-      <li>Ideal for outdoor adventurers, off-grid communication enthusiasts, and tech innovators.</li>
-    </ul>
-    <a href="https://docs.google.com/spreadsheets/d/1MIUBYAokPd80407hj6Cf8hqwyL0tMvIvSw8v6tQEbSg/edit?gid=0#gid=0" target="_blank" class="btn btn-primary" style="margin-top: 16px; font-size: 0.9rem; display: inline-block;">See program details</a>
+  <div class="section-inner fade-in" style="position: relative; z-index: 1;">
+    <div class="meshtastic-content">
+      <div class="meshtastic-text">
+        <h2>Affiliate Program for<br><span style="color: var(--green);">Meshtastic-Compatible Gear</span></h2>
+        <p class="subtitle"><strong>Join us and empower your audience with cutting-edge Meshtastic devices for reliable off-grid communication.</strong></p>
+        <ul>
+          <li>Benefit from competitive commissions and exclusive discounts for your audience.</li>
+          <li>Promote robust, decentralized communication solutions.</li>
+          <li>Ideal for outdoor adventurers, off-grid communication enthusiasts, and tech innovators.</li>
+        </ul>
+        <a href="https://docs.google.com/spreadsheets/d/1MIUBYAokPd80407hj6Cf8hqwyL0tMvIvSw8v6tQEbSg/edit?gid=0#gid=0" target="_blank" class="btn btn-primary" style="margin-top: 16px; font-size: 0.9rem;">See program details</a>
+      </div>
+      <div class="meshtastic-img">
+        <img src="product.png" alt="Meshtastic Gear">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -733,11 +755,4 @@ body {
       const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
       g.addColorStop(0, `rgba(163,230,53,${a})`); g.addColorStop(1, 'rgba(163,230,53,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
-    }
-    for (const p of particles) {
-      p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(Math.random() * nodes.length)]; p.b = nodes[~~(Math.random() * nodes.length)]; }
-      const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
-      ctx.fillStyle = 'rgba(163,230,53,0.55)'; ctx.beginPath(); ctx.arc(x, y, p.sz, 0, Math.PI * 2); ctx.fill();
-    }
-    requestAnimationFrame(draw);
+      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.
