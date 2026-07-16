@@ -356,7 +356,7 @@ body {
 .howitworks-section {
   position: relative; z-index: 1;
   padding: 90px 24px 140px;
-  background: #e8eaed;
+  background: #000;
 }
 .howitworks-section::before {
   content: '';
@@ -391,7 +391,7 @@ body {
 }
 .flow-label {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem; font-weight: 600; color: #333;
+  font-size: 0.85rem; font-weight: 600; color: var(--text);
 }
 .flow-line {
   width: 60px; height: 2px; background: var(--green);
@@ -431,10 +431,10 @@ body {
 }
 .step-link:hover { color: #C0FF40; }
 .steps-light .step {
-  background: #fff; border-color: #ddd;
+  background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1);
 }
-.steps-light .step h4 { color: #111; }
-.steps-light .step p { color: #555; }
+.steps-light .step h4 { color: var(--text); }
+.steps-light .step p { color: var(--text2); }
 
 /* Comparison */
 .compare {
@@ -606,7 +606,7 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 <!-- ═══════════ HOW TO PARTICIPATE ═══════════ -->
 <section class="section howitworks-section" id="howto">
   <div class="section-inner fade-in" style="position: relative; z-index: 1;">
-    <h2 style="color: #111; text-align: center;">How It Works</h2>
+    <h2 style="text-align: center;">How It Works</h2>
     <div class="flow-steps">
       <div class="flow-step-item">
         <div class="flow-circle">1</div>
@@ -781,4 +781,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
       <details class="faq-group">
         <summary class="faq-cat-btn">4. Terms and Conditions <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to
+          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your acces
