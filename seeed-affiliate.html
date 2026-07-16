@@ -380,6 +380,14 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem; font-weight: 700;
+  position: relative; z-index: 1;
+}
+.flow-circle::before {
+  content: '';
+  position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px;
+  border-radius: 50%;
+  background: rgba(163, 230, 53, 0.2);
+  z-index: -1;
 }
 .flow-label {
   font-family: 'Space Grotesk', sans-serif;
@@ -773,4 +781,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
       <details class="faq-group">
         <summary class="faq-cat-btn">4. Terms and Conditions <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="https://www.seeedst
+          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to leg
