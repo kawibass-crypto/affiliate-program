@@ -287,7 +287,7 @@ body {
 }
 .xiao-overlay {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.1));
   z-index: 0;
 }
 .xiao-content {
@@ -653,9 +653,6 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         <p>Join our Creator &amp; Affiliate Program and start promoting our XIAO Series gadgets today!</p>
         <a href="https://docs.google.com/spreadsheets/d/1YJczb1-lhSuZPXMlIxb_JtrEgdauSlXgSyXjXcqgd_Q/edit?gid=0#gid=0" class="btn btn-primary" style="margin-top: 16px;">Selected XIAO Series Promotion</a>
       </div>
-      <div class="xiao-img">
-        <img src="xiao01.png" alt="XIAO Series">
-      </div>
     </div>
   </div>
 </section>
@@ -775,4 +772,6 @@ function toggleFaqGroup(btn) {
   resize(); addEventListener('resize', resize);
 
   function mkNodes() {
-    
+    nodes = [];
+    const n = ~~((w * h) / 30000);
+  
