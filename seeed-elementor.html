@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seeed Creator & Affiliate Program</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+
 :root {
   --bg: #080C0F;
   --bg2: #0D1217;
@@ -239,7 +232,7 @@ body {
 .meshtastic-section {
   position: relative; z-index: 1;
   padding: 90px 24px;
-  background: url('BG03.jpg') center/cover no-repeat;
+  background: url('https://kawibass-crypto.github.io/affiliate-program/BG03.jpg') center/cover no-repeat;
 }
 .meshtastic-section h2 {
   font-family: 'Space Grotesk', sans-serif;
@@ -275,7 +268,7 @@ body {
 .xiao-section {
   position: relative; z-index: 1;
   padding: 90px 24px;
-  background: url('BG.png') center/cover no-repeat;
+  background: url('https://kawibass-crypto.github.io/affiliate-program/BG.png') center/cover no-repeat;
 }
 .xiao-section h2 {
   font-family: 'Space Grotesk', sans-serif;
@@ -359,7 +352,7 @@ body {
 .howitworks-section::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: url('BG04.png?v=2') center/cover no-repeat;
+  background: url('https://kawibass-crypto.github.io/affiliate-program/BG04.png?v=2') center/cover no-repeat;
   opacity: 0.4;
   z-index: 0;
 }
@@ -581,10 +574,8 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
     transition-duration: 0.01ms !important;
   }
 }
-</style>
-</head>
-<body>
 
+</style>
 <canvas id="circuit-bg"></canvas>
 
 <nav class="nav" id="nav">
@@ -904,5 +895,91 @@ setTimeout(() => {
   document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
 }, 2000);
 </script>
-</body>
-</html>
+<script>
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.parentElement, was = item.classList.contains('open');
+  item.parentElement.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
+  if (!was) item.classList.add('open');
+}
+function toggleFaqGroup(btn) {
+  const group = btn.parentElement;
+  group.classList.toggle('open');
+}
+
+// Circuit Background
+(function() {
+  const c = document.getElementById('circuit-bg');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let nodes = [], particles = [], w, h;
+
+  function resize() { w = c.width = innerWidth; h = c.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+
+  function mkNodes() {
+    nodes = [];
+    const n = ~~((w * h) / 30000);
+    for (let i = 0; i < n; i++) nodes.push({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.8 + 1,
+      p: Math.random() * Math.PI * 2,
+      s: Math.random() * 0.015 + 0.005,
+      g: Math.random() * 0.4 + 0.2
+    });
+  }
+  function mkParts() {
+    particles = [];
+    const n = ~~((w * h) / 70000);
+    for (let i = 0; i < n; i++) {
+      const a = nodes[~~(Math.random() * nodes.length)];
+      const b = nodes[~~(Math.random() * nodes.length)];
+      particles.push({ a, b, t: Math.random(), sp: Math.random() * 0.0025 + 0.0008, sz: Math.random() * 1.2 + 0.4 });
+    }
+  }
+  mkNodes(); mkParts();
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(163,230,53,0.05)'; ctx.lineWidth = 0.5;
+    for (let i = 0; i < nodes.length; i++)
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        if (dx*dx+dy*dy < 32400) { ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke(); }
+      }
+    for (const n of nodes) {
+      n.p += n.s;
+      const a = 0.25 + (n.g + Math.sin(n.p) * 0.25) * 0.5;
+      const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
+      g.addColorStop(0, `rgba(163,230,53,${a})`); g.addColorStop(1, 'rgba(163,230,53,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = `rgba(163,230,53,${a + 0.1})`; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+    }
+    for (const p of particles) {
+      p.t += p.sp; if (p.t > 1) { p.t = 0; p.a = nodes[~~(Math.random() * nodes.length)]; p.b = nodes[~~(Math.random() * nodes.length)]; }
+      const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
+      ctx.fillStyle = 'rgba(163,230,53,0.55)'; ctx.beginPath(); ctx.arc(x, y, p.sz, 0, Math.PI * 2); ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
+})();
+
+// Nav scroll
+addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 50));
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+setTimeout(() => {
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+}, 2000);
+</script>
