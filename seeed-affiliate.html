@@ -440,7 +440,7 @@ body {
 .faq-cat-btn .arrow { font-size: 0.7rem; transition: transform 0.3s; }
 details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 .faq-group-content {
-  padding: 0 4px;
+  padding: 0 4px 0 28px;
 }
 
 /* Footer */
@@ -753,5 +753,4 @@ function toggleFaqGroup(btn) {
     ctx.strokeStyle = 'rgba(163,230,53,0.05)'; ctx.lineWidth = 0.5;
     for (let i = 0; i < nodes.length; i++)
       for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
- 
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[
