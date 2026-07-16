@@ -355,7 +355,7 @@ body {
 /* How It Works */
 .howitworks-section {
   position: relative; z-index: 1;
-  padding: 90px 24px 140px;
+  padding: 140px 24px 190px;
   background: #000;
 }
 .howitworks-section::before {
@@ -363,6 +363,12 @@ body {
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   background: url('BG04.png?v=2') center/cover no-repeat;
   opacity: 1;
+  z-index: 0;
+}
+.howitworks-section::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
   z-index: 0;
 }
 
@@ -431,7 +437,7 @@ body {
 }
 .step-link:hover { color: #C0FF40; }
 .steps-light .step {
-  background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.1);
 }
 .steps-light .step h4 { color: var(--text); }
 .steps-light .step p { color: var(--text2); }
@@ -781,4 +787,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
       <details class="faq-group">
         <summary class="faq-cat-btn">4. Terms and Conditions <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subjec
+          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Con
