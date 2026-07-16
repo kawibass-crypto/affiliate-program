@@ -737,8 +737,7 @@ body {
 </footer>
 
 <script>
-// Circuit Background
-(function() {
-  const c = document.getElementById('circuit-bg');
-  const ctx = c.getContext('2d');
-  let no
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.parentElement, was = item.classList.contains('open');
+  item.parentEle
