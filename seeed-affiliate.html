@@ -304,6 +304,7 @@ body {
 @media (max-width: 768px) {
   .xiao-content { flex-direction: column; gap: 24px; }
 }
+.banner {
   background: linear-gradient(135deg, rgba(163, 230, 53, 0.05), rgba(132, 204, 22, 0.03));
   border: 1px solid rgba(163, 230, 53, 0.15);
   border-radius: var(--radius-lg); padding: 40px; margin: 16px 0 0;
@@ -588,7 +589,9 @@ body {
 
 <!-- ═══════════ HOME ASSISTANT 10% ═══════════ -->
 <section class="meshtastic-section">
-  <div class="xiao-overlay" style="background: rgba(0,0,0,0.5);"></div><br><span style="color: var(--green);">Meshtastic-Compatible Gear</span></h2>
+  <div class="xiao-overlay" style="background: rgba(0,0,0,0.5);"></div>
+  <div class="section-inner fade-in" style="position: relative; z-index: 1;">
+    <h2>Affiliate Program for<br><span style="color: var(--green);">Meshtastic-Compatible Gear</span></h2>
     <p class="subtitle"><strong>Join us and empower your audience with cutting-edge Meshtastic devices for reliable off-grid communication.</strong></p>
     <ul>
       <li>Benefit from competitive commissions and exclusive discounts for your audience.</li>
@@ -741,5 +744,4 @@ body {
     requestAnimationFrame(draw);
   }
   draw();
-  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
-})();
+  let 
