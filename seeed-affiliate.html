@@ -369,7 +369,7 @@ body {
 .howitworks-section::after {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(5, 15, 50, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 0;
 }
 
@@ -399,7 +399,7 @@ body {
 }
 .flow-label {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem; font-weight: 600; color: var(--text);
+  font-size: 1.7rem; font-weight: 600; color: var(--text);
 }
 .flow-line {
   width: 60px; height: 2px; background: var(--green);
@@ -419,6 +419,7 @@ body {
   background: var(--card); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 28px;
   transition: all 0.3s;
+  height: 100%;
 }
 .step:hover { border-color: var(--border-glow); }
 .step-icon {
@@ -441,6 +442,7 @@ body {
 .step-col {
   display: flex; flex-direction: column; align-items: center;
 }
+.step-col .step { width: 100%; }
 .steps-light .step {
   background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.1);
   box-shadow: 0 0 12px rgba(163, 230, 53, 0.15), inset 0 0 12px rgba(163, 230, 53, 0.05);
@@ -628,7 +630,6 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         </div>
         <div class="step">
           <img src="icon-step1.png?v=1" alt="Sign Up" class="step-icon">
-          <h4>Step 1 — Sign Up</h4>
           <p>Join in under 2 minutes by completing our short affiliate settings form.</p>
         </div>
       </div>
@@ -639,7 +640,6 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         </div>
         <div class="step">
           <img src="icon-step2.png?v=1" alt="Get Your Link" class="step-icon">
-          <h4>Step 2 — Get Your Tracking Link / Code</h4>
           <p>Access your personal dashboard and choose the best tracking link.</p>
         </div>
       </div>
@@ -650,7 +650,6 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         </div>
         <div class="step">
           <img src="icon-step3.png?v=1" alt="Create Content" class="step-icon">
-          <h4>Step 3 — Create Content</h4>
           <p>Tutorial · Review · Project Showcase</p>
         </div>
       </div>
@@ -661,7 +660,6 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         </div>
         <div class="step">
           <img src="icon-step4.png?v=1" alt="Promote and Get Paid" class="step-icon">
-          <h4>Step 4 — Promote and Get Paid</h4>
           <p>Share your link and earn with 45-day cookie tracking to maximize your revenue.</p>
         </div>
       </div>
@@ -791,4 +789,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         <summary class="faq-cat-btn">3. Orders &amp; Invoices <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <p>Q: Will I earn commissions if a referred order is cancelled?<br>A: No. Commissions apply only to completed orders. Cancelled orders void associated commissions.</p>
-          <p>Q: Can you provide an Invoice Template?<br>A
+          <p>Q: Can you provide an Invoice Template?<br>A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank">Download the template here</a> and edit the y
