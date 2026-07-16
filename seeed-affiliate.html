@@ -366,6 +366,34 @@ body {
   z-index: 0;
 }
 
+/* Flow Steps */
+.flow-steps {
+  display: flex; align-items: center; justify-content: center;
+  margin: 32px 0 12px; gap: 0;
+}
+.flow-step-item {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.flow-circle {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--green); color: #0A0F00;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem; font-weight: 700;
+}
+.flow-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem; font-weight: 600; color: #333;
+}
+.flow-line {
+  width: 60px; height: 2px; background: var(--green);
+  margin: 0 8px; margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .flow-steps { flex-wrap: wrap; gap: 12px; }
+  .flow-line { display: none; }
+}
+
 /* Steps */
 .steps {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -571,6 +599,27 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 <section class="section howitworks-section" id="howto">
   <div class="section-inner fade-in" style="position: relative; z-index: 1;">
     <h2 style="color: #111; text-align: center;">How It Works</h2>
+    <div class="flow-steps">
+      <div class="flow-step-item">
+        <div class="flow-circle">1</div>
+        <span class="flow-label">Sign Up</span>
+      </div>
+      <div class="flow-line"></div>
+      <div class="flow-step-item">
+        <div class="flow-circle">2</div>
+        <span class="flow-label">Get Your Link</span>
+      </div>
+      <div class="flow-line"></div>
+      <div class="flow-step-item">
+        <div class="flow-circle">3</div>
+        <span class="flow-label">Create Content</span>
+      </div>
+      <div class="flow-line"></div>
+      <div class="flow-step-item">
+        <div class="flow-circle">4</div>
+        <span class="flow-label">Promote &amp; Earn</span>
+      </div>
+    </div>
     <div class="steps steps-light" style="margin-top: 28px;">
       <div class="step">
         <img src="icon-step1.png?v=1" alt="Sign Up" class="step-icon">
@@ -724,49 +773,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
       <details class="faq-group">
         <summary class="faq-cat-btn">4. Terms and Conditions <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="https://www.seeedstudio.com/amasty-affiliate-conditions" target="_blank">Affiliate Program Terms &amp; Conditions</a>.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ FOOTER ═══════════ -->
-<section class="footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <h2>Promote Seeed.<br>Earn commission.</h2>
-      <a href="https://www.seeedstudio.com/customer/account/create/" target="_blank" class="btn btn-primary" style="font-size: 1rem; padding: 14px 36px;">Join Affiliate Program</a>
-    </div>
-    <div class="footer-right">
-      <h3>Need Further Support?</h3>
-      <p>Email: <a href="mailto:affiliate@seeed.cc">affiliate@seeed.cc</a></p>
-    </div>
-  </div>
-</section>
-
-<footer class="footer-legal">
-  <p>&copy; 2008–2026 Seeed Studio. All rights reserved.</p>
-</footer>
-
-<script>
-// FAQ toggle
-function toggleFaq(btn) {
-  const item = btn.parentElement, was = item.classList.contains('open');
-  item.parentElement.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
-  if (!was) item.classList.add('open');
-}
-function toggleFaqGroup(btn) {
-  const group = btn.parentElement;
-  group.classList.toggle('open');
-}
-
-// Circuit Background
-(function() {
-  const c = document.getElementById('circuit-bg');
-  if (!c) return;
-  const ctx = c.getContext('2d');
-  let nodes = [], particles = [], w, h;
-
-  function resize() { w = c.width = innerWidth; h = c.height = innerHeight; }
-  resize(); addEventListener('resize', resi
+          <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="https://www.seeedst
