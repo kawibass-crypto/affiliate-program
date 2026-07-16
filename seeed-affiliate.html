@@ -380,6 +380,11 @@ body {
   text-decoration: none; transition: color 0.2s;
 }
 .step-link:hover { color: #C0FF40; }
+.steps-light .step {
+  background: #fff; border-color: #ddd;
+}
+.steps-light .step h4 { color: #111; }
+.steps-light .step p { color: #555; }
 
 /* Comparison */
 .compare {
@@ -550,10 +555,10 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 </section>
 
 <!-- ═══════════ HOW TO PARTICIPATE ═══════════ -->
-<section class="section" style="background: var(--bg2);" id="howto">
+<section class="section" style="background: #e8eaed;" id="howto">
   <div class="section-inner fade-in">
-    <h2>How It Works</h2>
-    <div class="steps" style="margin-top: 28px;">
+    <h2 style="color: #111;">How It Works</h2>
+    <div class="steps steps-light" style="margin-top: 28px;">
       <div class="step">
         <img src="icon-step1.png?v=1" alt="Sign Up" class="step-icon">
         <h4>Step 1 — Sign Up</h4>
@@ -771,6 +776,4 @@ function toggleFaqGroup(btn) {
     particles = [];
     const n = ~~((w * h) / 70000);
     for (let i = 0; i < n; i++) {
-      const a = nodes[~~(Math.random() * nodes.length)];
-      const b = nodes[~~(Math.random() * nodes.length)];
-      particles.push({ a, b, t: Math.random(), sp: Math.random() * 0.0025 + 0.0008, sz
+      const a = nodes[~~(Math.
