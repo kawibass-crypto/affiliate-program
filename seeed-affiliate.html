@@ -731,7 +731,6 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 </section>
 
 <footer class="footer-legal">
-  <p style="max-width: 700px; margin: 0 auto 8px;">As a Seeed Affiliate, you agree to abide by the Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="#">Affiliate Program Terms &amp; Conditions</a>.</p>
   <p>&copy; 2008–2026 Seeed Studio. All rights reserved.</p>
 </footer>
 
@@ -761,3 +760,17 @@ function toggleFaqGroup(btn) {
     nodes = [];
     const n = ~~((w * h) / 30000);
     for (let i = 0; i < n; i++) nodes.push({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.8 + 1,
+      p: Math.random() * Math.PI * 2,
+      s: Math.random() * 0.015 + 0.005,
+      g: Math.random() * 0.4 + 0.2
+    });
+  }
+  function mkParts() {
+    particles = [];
+    const n = ~~((w * h) / 70000);
+    for (let i = 0; i < n; i++) {
+      const a = nodes[~~(Math.random() * nodes.length)];
+      const b = nodes[~~(Math.random() * nodes.length)];
+      particles.push({ a, b, t: Math.random(), sp: Math.random() * 0.0025 + 0.0008, sz: Math.random() 
