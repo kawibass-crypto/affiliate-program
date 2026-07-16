@@ -61,11 +61,8 @@ body {
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo {
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
-  font-size: 1.2rem; color: var(--text); text-decoration: none;
-  letter-spacing: -0.02em;
+  text-decoration: none;
 }
-.nav-logo span { color: var(--green); }
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
   color: var(--text2); text-decoration: none; font-size: 0.88rem;
@@ -444,7 +441,7 @@ body {
 }
 .step-col .step { width: 100%; }
 .steps-light .step {
-  background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.8); border: 1px solid rgba(163, 230, 53, 0.35);
   box-shadow: 0 0 12px rgba(163, 230, 53, 0.15), inset 0 0 12px rgba(163, 230, 53, 0.05);
 }
 .steps-light .step:hover { box-shadow: 0 0 20px rgba(163, 230, 53, 0.3), inset 0 0 16px rgba(163, 230, 53, 0.1); }
@@ -592,7 +589,7 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Seeed<span>Studio</span></a>
+    <a href="#" class="nav-logo"><img src="seeedLOGO.png" alt="Seeed Studio" style="height: 32px;"></a>
     <ul class="nav-links">
       <li><a href="#howto">How It Works</a></li>
       <li><a href="#looking">Why join</a></li>
@@ -910,3 +907,4 @@ setTimeout(() => {
 </script>
 </body>
 </html>
+                                                                                                                       
