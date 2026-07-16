@@ -648,69 +648,39 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
       <details class="faq-group">
         <summary class="faq-cat-btn">1. Commission Policies <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Q: What promotion methods are prohibited? <span class="arrow">▼</span></button>
-            <div class="faq-a">
-              <p>A: To ensure fairness, please note the following restrictions:</p>
-              <ul>
-                <li><strong>No PPC advertising bidding:</strong> Affiliate accounts using paid ads to promote links will be closed with unpaid commissions.</li>
-                <li><strong>No personal purchases with affiliate links/discount codes:</strong> Orders from your personal account will be manually reviewed, and we reserve the right to withhold commissions. Misuse of discount codes will result in immediate revocation without notice.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Q: How are commission rates structured and updated? <span class="arrow">▼</span></button>
-            <div class="faq-a">
-              <p>A: Our commission system is designed to reward active affiliates:</p>
-              <ul>
-                <li><strong>Base Rate Guarantee:</strong> A 3% commission rate applies to all eligible products and will not decrease.</li>
-                <li><strong>Tiered Rewards:</strong> High-performing affiliates may qualify for increased rates based on sales volume.</li>
-                <li><strong>Seasonal Boosts:</strong> Quarterly limited-time campaigns may offer higher rates for specific categories.</li>
-                <li><strong>New Product Launches:</strong> Exclusive short-term rate boosts for newly released products.</li>
-              </ul>
-              <p style="margin-top: 6px;">❗ All updates (rate changes, campaigns, etc.) will be notified via email.</p>
-            </div>
-          </div>
+          <p>Q: What promotion methods are prohibited? A: To ensure fairness, please note the following restrictions:</p>
+          <ul>
+            <li>No PPC advertising bidding: Affiliate accounts using paid ads to promote links will be closed with unpaid commissions.</li>
+            <li>No personal purchases with affiliate links/discount codes: Orders from your personal account will be manually reviewed, and we reserve the right to withhold commissions. Misuse of discount codes will result in immediate revocation without notice.</li>
+          </ul>
+          <p>Q: How are commission rates structured and updated? A: Our commission system is designed to reward active affiliates:</p>
+          <ul>
+            <li>Base Rate Guarantee: A 3% commission rate applies to all eligible products and will not decrease.</li>
+            <li>Tiered Rewards: High-performing affiliates may qualify for increased rates based on sales volume.</li>
+            <li>Seasonal Boosts: Quarterly limited-time campaigns may offer higher rates for specific categories.</li>
+            <li>New Product Launches: Exclusive short-term rate boosts for newly released products.</li>
+          </ul>
+          <p>❗ All updates (rate changes, campaigns, etc.) will be notified via email.</p>
         </div>
       </details>
       <details class="faq-group">
         <summary class="faq-cat-btn">2. Withdrawal Process <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Q: How do I withdraw my commissions? <span class="arrow">▼</span></button>
-            <div class="faq-a">
-              <p>A: The minimum withdrawal amount is $50:</p>
-              <ul>
-                <li>Go to "My Balance" in your account and click "Withdraw";</li>
-                <li>Email an electronic invoice matching the withdrawal amount to order@seeed.io</li>
-                <li>Payments are processed quarterly (March/June/September/December).</li>
-              </ul>
-              <p style="margin-top: 6px;">❗ Tip: Submit requests by mid-quarter (e.g., March 15) to expedite processing.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Q: Are there withdrawal timing restrictions? <span class="arrow">▼</span></button>
-            <div class="faq-a">
-              <p>A: You may apply anytime, but payments are batched quarterly. Automatic payments are unavailable (platform limitation).</p>
-            </div>
-          </div>
+          <p>Q: How do I withdraw my commissions? A: The minimum withdrawal amount is $50:</p>
+          <ul>
+            <li>Go to "My Balance" in your account and click "Withdraw";</li>
+            <li>Email an electronic invoice matching the withdrawal amount to order@seeed.io</li>
+            <li>Payments are processed quarterly (March/June/September/December).</li>
+          </ul>
+          <p>❗ Tip: Submit requests by mid-quarter (e.g., March 15) to expedite processing.</p>
+          <p>Q: Are there withdrawal timing restrictions? A: You may apply anytime, but payments are batched quarterly. Automatic payments are unavailable (platform limitation).</p>
         </div>
       </details>
       <details class="faq-group">
         <summary class="faq-cat-btn">3. Orders &amp; Invoices <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Q: Will I earn commissions if a referred order is cancelled? <span class="arrow">▼</span></button>
-            <div class="faq-a">
-              <p>A: No. Commissions apply only to completed orders. Cancelled orders void associated commissions.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)">Q: Can you provide an Invoice Template? <span class="arrow">▼</span></button>
-            <div class="faq-a">
-              <p>A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank">Download the template here</a> and edit the yellow highlighted fields with your details.</p>
-            </div>
-          </div>
+          <p>Q: Will I earn commissions if a referred order is cancelled? A: No. Commissions apply only to completed orders. Cancelled orders void associated commissions.</p>
+          <p>Q: Can you provide an Invoice Template? A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank">Download the template here</a> and edit the yellow highlighted fields with your details.</p>
         </div>
       </details>
       <details class="faq-group">
@@ -738,4 +708,50 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 // FAQ toggle
 function toggleFaq(btn) {
   const item = btn.parentElement, was = item.classList.contains('open');
-  item.parentElement.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open')
+  item.parentElement.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
+  if (!was) item.classList.add('open');
+}
+function toggleFaqGroup(btn) {
+  const group = btn.parentElement;
+  group.classList.toggle('open');
+}
+
+// Circuit Background
+(function() {
+  const c = document.getElementById('circuit-bg');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  let nodes = [], particles = [], w, h;
+
+  function resize() { w = c.width = innerWidth; h = c.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+
+  function mkNodes() {
+    nodes = [];
+    const n = ~~((w * h) / 30000);
+    for (let i = 0; i < n; i++) nodes.push({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.8 + 1,
+      p: Math.random() * Math.PI * 2,
+      s: Math.random() * 0.015 + 0.005,
+      g: Math.random() * 0.4 + 0.2
+    });
+  }
+  function mkParts() {
+    particles = [];
+    const n = ~~((w * h) / 70000);
+    for (let i = 0; i < n; i++) {
+      const a = nodes[~~(Math.random() * nodes.length)];
+      const b = nodes[~~(Math.random() * nodes.length)];
+      particles.push({ a, b, t: Math.random(), sp: Math.random() * 0.0025 + 0.0008, sz: Math.random() * 1.2 + 0.4 });
+    }
+  }
+  mkNodes(); mkParts();
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(163,230,53,0.05)'; ctx.lineWidth = 0.5;
+    for (let i = 0; i < nodes.length; i++)
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+ 
