@@ -295,7 +295,7 @@ body {
   margin-top: 28px; gap: 48px;
 }
 .xiao-text {
-  flex: 1;
+  flex: 1; max-width: 500px;
 }
 .xiao-text p {
   color: var(--text2); font-size: 0.92rem; line-height: 1.7;
@@ -775,5 +775,4 @@ function toggleFaqGroup(btn) {
     particles = [];
     const n = ~~((w * h) / 70000);
     for (let i = 0; i < n; i++) {
-      const a = nodes[~~(Math.random() * nodes.length)];
-      const b
+      const a = nodes[~~(Math.random() * nodes.lengt
