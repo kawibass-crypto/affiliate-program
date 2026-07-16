@@ -352,6 +352,20 @@ body {
   content: '▸'; position: absolute; left: 0; color: var(--green);
 }
 
+/* How It Works */
+.howitworks-section {
+  position: relative; z-index: 1;
+  padding: 90px 24px 140px;
+  background: #e8eaed;
+}
+.howitworks-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: url('BG04.png') center/cover no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+
 /* Steps */
 .steps {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -554,8 +568,8 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 </section>
 
 <!-- ═══════════ HOW TO PARTICIPATE ═══════════ -->
-<section class="section" style="background: #e8eaed; padding-bottom: 140px;" id="howto">
-  <div class="section-inner fade-in">
+<section class="section howitworks-section" id="howto">
+  <div class="section-inner fade-in" style="position: relative; z-index: 1;">
     <h2 style="color: #111;">How It Works</h2>
     <div class="steps steps-light" style="margin-top: 28px;">
       <div class="step">
@@ -764,15 +778,4 @@ function toggleFaqGroup(btn) {
     nodes = [];
     const n = ~~((w * h) / 30000);
     for (let i = 0; i < n; i++) nodes.push({
-      x: Math.random() * w, y: Math.random() * h,
-      r: Math.random() * 1.8 + 1,
-      p: Math.random() * Math.PI * 2,
-      s: Math.random() * 0.015 + 0.005,
-      g: Math.random() * 0.4 + 0.2
-    });
-  }
-  function mkParts() {
-    particles = [];
-    const n = ~~((w * h) / 70000);
-    for (let i = 0; i < n; i++) {
-      const a = nodes[~~(Math.random() * nodes.le
+      x: Math.random() * w, y: Math.random(
