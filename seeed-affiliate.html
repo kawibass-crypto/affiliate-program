@@ -432,17 +432,14 @@ body {
   text-align: left; cursor: pointer;
   display: flex; justify-content: space-between; align-items: center;
   border-radius: var(--radius); transition: all 0.3s;
-  margin-bottom: 8px;
+  margin-bottom: 8px; list-style: none;
 }
+.faq-cat-btn::-webkit-details-marker { display: none; }
 .faq-cat-btn:hover { border-color: var(--border-glow); }
 .faq-cat-btn .arrow { font-size: 0.7rem; transition: transform 0.3s; }
-.faq-group.open .faq-cat-btn .arrow { transform: rotate(180deg); }
+details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 .faq-group-content {
-  display: none !important;
   padding: 0 4px;
-}
-.faq-group.open .faq-group-content {
-  display: block !important;
 }
 
 /* Footer */
@@ -647,8 +644,8 @@ body {
   <div class="section-inner fade-in">
     <h2>FAQ</h2>
     <div class="faq" style="margin-top: 28px;">
-      <div class="faq-group">
-        <button class="faq-cat-btn" onclick="toggleFaqGroup(this)">1. Commission Policies <span class="arrow">▼</span></button>
+      <details class="faq-group">
+        <summary class="faq-cat-btn">1. Commission Policies <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">Q: What promotion methods are prohibited? <span class="arrow">▼</span></button>
@@ -674,9 +671,9 @@ body {
             </div>
           </div>
         </div>
-      </div>
-      <div class="faq-group">
-        <button class="faq-cat-btn" onclick="toggleFaqGroup(this)">2. Withdrawal Process <span class="arrow">▼</span></button>
+      </details>
+      <details class="faq-group">
+        <summary class="faq-cat-btn">2. Withdrawal Process <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">Q: How do I withdraw my commissions? <span class="arrow">▼</span></button>
@@ -697,9 +694,9 @@ body {
             </div>
           </div>
         </div>
-      </div>
-      <div class="faq-group">
-        <button class="faq-cat-btn" onclick="toggleFaqGroup(this)">3. Orders &amp; Invoices <span class="arrow">▼</span></button>
+      </details>
+      <details class="faq-group">
+        <summary class="faq-cat-btn">3. Orders &amp; Invoices <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <div class="faq-item">
             <button class="faq-q" onclick="toggleFaq(this)">Q: Will I earn commissions if a referred order is cancelled? <span class="arrow">▼</span></button>
@@ -714,13 +711,13 @@ body {
             </div>
           </div>
         </div>
-      </div>
-      <div class="faq-group">
-        <button class="faq-cat-btn" onclick="toggleFaqGroup(this)">4. Terms and Conditions <span class="arrow">▼</span></button>
+      </details>
+      <details class="faq-group">
+        <summary class="faq-cat-btn">4. Terms and Conditions <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <p>As a Seeed Affiliate, you agree to abide by this Seeed Affiliate Terms and Conditions regarding the Affiliate Program that may be provided and amended by us from time to time. Your access to and use of the Program is subject to legally binding terms and conditions, please carefully read all of the following before you proceed. Before joining the program, please read carefully about our agreement, which you can find here: <a href="https://www.seeedstudio.com/amasty-affiliate-conditions" target="_blank">Affiliate Program Terms &amp; Conditions</a>.</p>
         </div>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -740,4 +737,5 @@ body {
 // FAQ toggle
 function toggleFaq(btn) {
   const item = btn.parentElement, was = item.classList.contains('open');
-  item.parentEle
+  item.parentElement.querySelectorAll('.faq-item').forEach(e => e.classList.remove('open'));
+  if (!was) item.classList.add(
