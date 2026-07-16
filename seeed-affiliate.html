@@ -258,6 +258,7 @@ body {
 .meshtastic-section li::before {
   content: '▸'; position: absolute; left: 0; color: var(--green);
 }
+.xiao-section {
   position: relative; z-index: 1;
   padding: 90px 24px;
   background: url('BG.png') center/cover no-repeat;
@@ -740,4 +741,5 @@ body {
     requestAnimationFrame(draw);
   }
   draw();
-  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNo
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { mkNodes(); mkParts(); }, 300); });
+})();
