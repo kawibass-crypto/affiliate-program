@@ -438,11 +438,11 @@ body {
 .faq-cat-btn .arrow { font-size: 0.7rem; transition: transform 0.3s; }
 .faq-group.open .faq-cat-btn .arrow { transform: rotate(180deg); }
 .faq-group-content {
-  display: none;
+  display: none !important;
   padding: 0 4px;
 }
 .faq-group.open .faq-group-content {
-  display: block;
+  display: block !important;
 }
 
 /* Footer */
@@ -741,4 +741,4 @@ body {
 (function() {
   const c = document.getElementById('circuit-bg');
   const ctx = c.getContext('2d');
-  let nodes = [], particles = 
+  let no
