@@ -630,25 +630,6 @@ body {
   </div>
 </section>
 
-<!-- ═══════════ NOT SURE WHICH PROGRAM ═══════════ -->
-<section class="section">
-  <div class="section-inner fade-in">
-    <h2>Not Sure Which Program Suits You Best?</h2>
-    <div class="compare" style="margin-top: 28px;">
-      <div class="compare-card">
-        <h3>Content Creator</h3>
-        <p>If you're more interested in content creation, just let us know in your application email, and include samples of your work.</p>
-      </div>
-      <div class="compare-card">
-        <h3>Affiliate Promoter</h3>
-        <p>If you're focused on affiliate promotion, we'll provide exclusive commission rate for you and dedicated discount for your viewers according to your promotion performance.</p>
-      </div>
-    </div>
-    <p class="note">*This program applies to Seeed Bazaar products only. Fusion PCB/PCBA are not currently included.</p>
-    <p class="note">*Application emails are reviewed manually — please allow a few days for our team to get back to you.</p>
-  </div>
-</section>
-
 <!-- ═══════════ FAQ ═══════════ -->
 <section class="section" style="background: var(--bg2);" id="faq">
   <div class="section-inner fade-in">
@@ -744,4 +725,29 @@ body {
   function mkNodes() {
     nodes = [];
     const n = ~~((w * h) / 30000);
-    for (let i = 0;
+    for (let i = 0; i < n; i++) nodes.push({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.8 + 1,
+      p: Math.random() * Math.PI * 2,
+      s: Math.random() * 0.015 + 0.005,
+      g: Math.random() * 0.4 + 0.2
+    });
+  }
+  function mkParts() {
+    particles = [];
+    const n = ~~((w * h) / 70000);
+    for (let i = 0; i < n; i++) {
+      const a = nodes[~~(Math.random() * nodes.length)];
+      const b = nodes[~~(Math.random() * nodes.length)];
+      particles.push({ a, b, t: Math.random(), sp: Math.random() * 0.0025 + 0.0008, sz: Math.random() * 1.2 + 0.4 });
+    }
+  }
+  mkNodes(); mkParts();
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = 'rgba(163,230,53,0.05)'; ctx.lineWidth = 0.5;
+    for (let i = 0; i < nodes.length; i++)
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        if (dx*dx+dy*dy < 32400) { ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke
