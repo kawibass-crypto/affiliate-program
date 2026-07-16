@@ -380,6 +380,7 @@ body {
 }
 .flow-step-item {
   display: flex; flex-direction: column; align-items: center; gap: 8px;
+  margin-bottom: 16px;
 }
 .flow-circle {
   width: 44px; height: 44px; border-radius: 50%;
@@ -437,6 +438,9 @@ body {
   text-decoration: none; transition: color 0.2s;
 }
 .step-link:hover { color: #C0FF40; }
+.step-col {
+  display: flex; flex-direction: column; align-items: center;
+}
 .steps-light .step {
   background: rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.1);
   box-shadow: 0 0 12px rgba(163, 230, 53, 0.15), inset 0 0 12px rgba(163, 230, 53, 0.05);
@@ -616,47 +620,50 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
 <section class="section howitworks-section" id="howto">
   <div class="section-inner fade-in" style="position: relative; z-index: 1;">
     <h2 style="text-align: center;">How It Works</h2>
-    <div class="flow-steps">
-      <div class="flow-step-item">
-        <div class="flow-circle">1</div>
-        <span class="flow-label">Sign Up</span>
-      </div>
-      <div class="flow-line"></div>
-      <div class="flow-step-item">
-        <div class="flow-circle">2</div>
-        <span class="flow-label">Get Your Link</span>
-      </div>
-      <div class="flow-line"></div>
-      <div class="flow-step-item">
-        <div class="flow-circle">3</div>
-        <span class="flow-label">Create Content</span>
-      </div>
-      <div class="flow-line"></div>
-      <div class="flow-step-item">
-        <div class="flow-circle">4</div>
-        <span class="flow-label">Promote &amp; Earn</span>
-      </div>
-    </div>
     <div class="steps steps-light" style="margin-top: 28px;">
-      <div class="step">
-        <img src="icon-step1.png?v=1" alt="Sign Up" class="step-icon">
-        <h4>Step 1 — Sign Up</h4>
-        <p>Join in under 2 minutes by completing our short affiliate settings form.</p>
+      <div class="step-col">
+        <div class="flow-step-item">
+          <div class="flow-circle">1</div>
+          <span class="flow-label">Sign Up</span>
+        </div>
+        <div class="step">
+          <img src="icon-step1.png?v=1" alt="Sign Up" class="step-icon">
+          <h4>Step 1 — Sign Up</h4>
+          <p>Join in under 2 minutes by completing our short affiliate settings form.</p>
+        </div>
       </div>
-      <div class="step">
-        <img src="icon-step2.png?v=1" alt="Get Your Link" class="step-icon">
-        <h4>Step 2 — Get Your Tracking Link / Code</h4>
-        <p>Access your personal dashboard and choose the best tracking link.</p>
+      <div class="step-col">
+        <div class="flow-step-item">
+          <div class="flow-circle">2</div>
+          <span class="flow-label">Get Your Link</span>
+        </div>
+        <div class="step">
+          <img src="icon-step2.png?v=1" alt="Get Your Link" class="step-icon">
+          <h4>Step 2 — Get Your Tracking Link / Code</h4>
+          <p>Access your personal dashboard and choose the best tracking link.</p>
+        </div>
       </div>
-      <div class="step">
-        <img src="icon-step3.png?v=1" alt="Create Content" class="step-icon">
-        <h4>Step 3 — Create Content</h4>
-        <p>Tutorial · Review · Project Showcase</p>
+      <div class="step-col">
+        <div class="flow-step-item">
+          <div class="flow-circle">3</div>
+          <span class="flow-label">Create Content</span>
+        </div>
+        <div class="step">
+          <img src="icon-step3.png?v=1" alt="Create Content" class="step-icon">
+          <h4>Step 3 — Create Content</h4>
+          <p>Tutorial · Review · Project Showcase</p>
+        </div>
       </div>
-      <div class="step">
-        <img src="icon-step4.png?v=1" alt="Promote and Get Paid" class="step-icon">
-        <h4>Step 4 — Promote and Get Paid</h4>
-        <p>Share your link and earn with 45-day cookie tracking to maximize your revenue.</p>
+      <div class="step-col">
+        <div class="flow-step-item">
+          <div class="flow-circle">4</div>
+          <span class="flow-label">Promote &amp; Earn</span>
+        </div>
+        <div class="step">
+          <img src="icon-step4.png?v=1" alt="Promote and Get Paid" class="step-icon">
+          <h4>Step 4 — Promote and Get Paid</h4>
+          <p>Share your link and earn with 45-day cookie tracking to maximize your revenue.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -784,4 +791,4 @@ details[open] .faq-cat-btn .arrow { transform: rotate(180deg); }
         <summary class="faq-cat-btn">3. Orders &amp; Invoices <span class="arrow">▼</span></summary>
         <div class="faq-group-content">
           <p>Q: Will I earn commissions if a referred order is cancelled?<br>A: No. Commissions apply only to completed orders. Cancelled orders void associated commissions.</p>
-          <p>Q: Can you provide an Invoice Template?<br>A: Yes! <a href="https://files.seeedstudio.com/wiki/wiki-platform/Invoice_Template.pdf" target="_blank">Download the template here</a> and edit the yellow highlighted fields with your details.
+          <p>Q: Can you provide an Invoice Template?<br>A
